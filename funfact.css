@@ -1,0 +1,75 @@
+html {
+    font-family: "Josefin Sans", sans-serif;
+    background-color: #FFFFF7;
+    font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* --- 圖片互動效果 --- */
+.quiz-option {
+    transition: transform 0.25s ease;
+    cursor: pointer;
+}
+
+.quiz-option:hover {
+    transform: scale(1.08);
+}
+
+/* --- Popover 基本樣式 --- */
+.popover {
+    border: 2px solid #ccc;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+}
+
+/* ✅ 正確答案 popover */
+.popover-correct {
+    background-color: #e8fbe8;
+    border-color: #4CAF50;
+}
+
+.popover-correct .popover-header {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+.popover-correct .popover-body {
+    color: #2e7d32;
+}
+
+.popover-correct.bs-popover-auto[data-popper-placement^=bottom]>.popover-arrow::after {
+    border-bottom-color: #e8fbe8;
+}
+
+/* ❌ 錯誤答案 popover */
+.popover-wrong {
+    background-color: #fde8e8;
+    border-color: #f44336;
+}
+
+.popover-wrong .popover-header {
+    background-color: #f44336;
+    color: white;
+    font-weight: bold;
+}
+
+.popover-wrong .popover-body {
+    color: #c62828;
+}
+
+.popover-wrong.bs-popover-auto[data-popper-placement^=bottom]>.popover-arrow::after {
+    border-bottom-color: #fde8e8;
+}
