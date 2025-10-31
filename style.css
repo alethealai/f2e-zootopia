@@ -98,8 +98,9 @@ html {
     width: 100%;
     margin: 1.5rem 0;
 }
+
 /* nancy圖片牆 */
-.imagewall{
+.imagewall {
     width: 100vw;
     background-color: #DED9D1;
     display: flex;
@@ -109,46 +110,47 @@ html {
 }
 
 .two-column-container {
-    display: flex; 
-    gap: 2.2rem; 
-    max-width: 65rem; 
-    margin: 0 auto; 
+    display: flex;
+    gap: 2.2rem;
+    max-width: 65rem;
+    margin: 0 auto;
 }
 
 /* 長方形卡片 */
 .grid-item {
-    flex: 1; 
-    display: flex; 
+    flex: 1;
+    display: flex;
     border: 1px solid #ddd;
     border-radius: 1rem;
     padding: 0.6rem;
-    overflow: hidden; 
+    overflow: hidden;
     background-color: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     margin-bottom: 1.4rem;
 }
+
 .grid-item img {
-    flex: 0 0 40%; 
+    flex: 0 0 40%;
     overflow: hidden;
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 .grid-item-text {
-    flex: 1; 
+    flex: 1;
     padding: 1.5em;
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
 }
 
 .grid-item h3 {
     margin-top: 0;
     font-size: 1.4em;
     color: #333;
-    border-bottom: 2px solid #67727e; 
+    border-bottom: 2px solid #67727e;
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
@@ -160,7 +162,12 @@ html {
 }
 
 .footer {
-    width: 100vw;
+    /* 寬度補償：因為 body (.quiz-area) 有左右 padding，
+       使用 100vw 會造成水平溢出或看起來被推離左側。
+       這裡用 calc(100% + 4rem) 並向左移動 2rem 來補償 body 的 2rem padding。 */
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;

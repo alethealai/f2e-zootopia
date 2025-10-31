@@ -1,7 +1,11 @@
 html {
-    font-family: "Josefin Sans", sans-serif;
-    background-color: #FFFFF7;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #93afcc;
     font-size: 16px;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 *,
@@ -12,64 +16,87 @@ html {
     padding: 0;
 }
 
-body {
-    font-family: 'Josefin Sans', sans-serif;
+.quiz-area {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: #93afcc;
 }
 
-/* --- 圖片互動效果 --- */
-.quiz-option {
-    transition: transform 0.25s ease;
+.quiz-area h2 {
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif !important;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.quize-popover {
+    width: 100%;
+    background-color: #93afcc;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.image-container {
+    padding: 1rem;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.animal-img {
+    background-color: #93afcc;
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
     cursor: pointer;
+    /* border-radius: 50%; */
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); */
 }
 
-.quiz-option:hover {
-    transform: scale(1.08);
+.image-container:hover {
+    transform: scale(1.1);
 }
 
-/* --- Popover 基本樣式 --- */
 .popover {
-    border: 2px solid #ccc;
-    border-radius: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    font-size: 1rem;
+    max-width: 20.5rem;
+    border-width: 2px;
+    /* border-radius: 50%; */
 }
 
-/* ✅ 正確答案 popover */
 .popover-correct {
-    background-color: #e8fbe8;
-    border-color: #4CAF50;
+    border-color: #28a745;
 }
 
 .popover-correct .popover-header {
-    background-color: #4CAF50;
+    background-color: #28a745;
     color: white;
+    text-align: center;
     font-weight: bold;
 }
 
 .popover-correct .popover-body {
-    color: #2e7d32;
+    background-color: #d4edda;
+    padding: 15px;
+    text-align: center;
+    color: #155724;
 }
 
-.popover-correct.bs-popover-auto[data-popper-placement^=bottom]>.popover-arrow::after {
-    border-bottom-color: #e8fbe8;
+.popover-incorrect {
+    border-color: #dc3545;
 }
 
-/* ❌ 錯誤答案 popover */
-.popover-wrong {
-    background-color: #fde8e8;
-    border-color: #f44336;
-}
-
-.popover-wrong .popover-header {
-    background-color: #f44336;
+.popover-incorrect .popover-header {
+    background-color: #dc3545;
     color: white;
+    text-align: center;
     font-weight: bold;
 }
 
-.popover-wrong .popover-body {
-    color: #c62828;
-}
-
-.popover-wrong.bs-popover-auto[data-popper-placement^=bottom]>.popover-arrow::after {
-    border-bottom-color: #fde8e8;
+.popover-incorrect .popover-body {
+    background-color: #f8d7da;
+    padding: 15px;
+    text-align: center;
+    color: #721c24;
 }
