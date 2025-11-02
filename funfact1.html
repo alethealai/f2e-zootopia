@@ -15,27 +15,133 @@
 </head>
 
 <body>
+    <!-- Carousel: 3 pages (image left, text right) -->
+    <section class="carousel-custom" aria-label="Fun facts carousel">
+        <div class="controls">
+            <button class="prev" aria-label="Previous slide">‹</button>
+            <button class="next" aria-label="Next slide">›</button>
+        </div>
+
+        <div class="slides">
+            <article class="slide" aria-hidden="false">
+                <img src="img/cow.png" alt="Fun fact image 1">
+                <div class="slide-text">
+                    <h3>Cows: The Pooing Champions</h3>
+                    <p>Cows poo up to 15 times a day, which can be as much as 115 pounds of manure per day — or
+                        approximately 21 tons per year!<br>
+                        The large quantities are often put to good use, though – manure can be turned into fertilizer,
+                        fuel, or biogas to create electricity and heat for developing parts of the world.<br>Cows can
+                        also sleep standing up, but they can only dream while lying down.</p>
+                </div>
+            </article>
+
+            <article class="slide" aria-hidden="true">
+                <img src="img/bee.png" alt="Fun fact image 2">
+                <div class="slide-text">
+                    <h3>Bees: The Five-Eyed Flyers</h3>
+                    <p>Bees have five eyes — two large compound eyes at the front, like those of a fly, and three
+                        smaller eyes on top of their heads called ocelli.<br>
+                        These ocelli detect changes in light, helping bees sense movement and spot potential predators
+                        approaching from above.<br>
+                        Their incredible vision also helps them navigate, find flowers, and return to their hives with
+                        precision.</p>
+                </div>
+            </article>
+
+            <article class="slide" aria-hidden="true">
+                <img src="img/octopus.png" alt="Fun fact image 3">
+                <div class="slide-text">
+                    <h3>Octopuses: The Three-Hearted Wonders</h3>
+                    <p>Octopuses have three hearts — one pumps blood around the body, while the other two pump it to the
+                        gills.<br>
+                        Oh, and their blood is blue, thanks to high levels of copper!</p>
+                </div>
+            </article>
+
+            <article class="slide" aria-hidden="true">
+                <img src="img/snail.png" alt="Fun fact image 3">
+                <div class="slide-text">
+                    <h3>Snails: The True Kings of Teeth</h3>
+                    <p>A common garden snail has around 14,000 teeth.<br>
+                        Their microscopic teeth are called radula, and some species actually have over 20,000 teeth!
+                        The radula acts like a tiny scraper, helping snails grind plants and algae for food.</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="dots" role="tablist" aria-label="Slide dots">
+            <span class="dot active" data-index="0" role="tab" aria-selected="true"></span>
+            <span class="dot" data-index="1" role="tab" aria-selected="false"></span>
+            <span class="dot" data-index="2" role="tab" aria-selected="false"></span>
+            <span class="dot" data-index="3" role="tab" aria-selected="false"></span>
+        </div>
+    </section>
+
+    <!-- 比較 -->
+    <section class="comparison">
+        <div class="left-panel">
+            <div class="item-small">
+                <img src="img/octopus.png" alt="小照片 1 說明">
+                <p class="caption">octopus</p>
+            </div>
+            <div class="item-small">
+                <img src="img/cow.png" alt="小照片 2 說明">
+                <p class="caption">cow</p>
+            </div>
+            <div class="item-small">
+                <img src="img/bee.png" alt="小照片 3 說明">
+                <p class="caption">bee</p>
+            </div>
+            <div class="item-small">
+                <img src="img/snail.png" alt="小照片 4 說明">
+                <p class="caption">snail</p>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="item-long">
+                <img src="img/heart.png" alt="長條照片 1 說明">
+                <p class="caption">&nbsp;&nbsp;&nbsp;&nbsp;3 hearts</p>
+            </div>
+            <div class="item-long">
+                <img src="img/stomach.png" alt="長條照片 2 說明">
+                <p class="caption">&nbsp;&nbsp;&nbsp;&nbsp;4 stomaches</p>
+            </div>
+            <div class="item-long">
+                <img src="img/eyes.png" alt="長條照片 3 說明">
+                <p class="caption">&nbsp;&nbsp;&nbsp;&nbsp;5 eyes</p>
+            </div>
+            <div class="item-long">
+                <img src="img/teeth1.png" alt="長條照片 4 說明">
+                <p class="caption">&nbsp;&nbsp;&nbsp;&nbsp;14,000 teeth</p>
+            </div>
+        </div>
+    </section>
+
+
     <section class="quiz-area">
         <h2>Which is the heaviest?</h2>
 
         <div class="quize-popover">
             <div class="image-container">
-                <img src="zebra.PNG" alt="Elephant" class="animal-img" data-bs-toggle="popover"
+                <img src="img/zebra.PNG" alt="Elephant" class="animal-img" data-bs-toggle="popover"
                     data-bs-content="正確！非洲象是地球上最重的陸地動物，成年公象可以重達6,000公斤！" data-bs-trigger="hover" data-bs-title="答對了！"
                     data-bs-placement="bottom" data-bs-custom-class="popover-correct">
             </div>
             <div class="image-container">
-                <img src="zebra.PNG" alt="Hippopotamus" class="animal-img" data-bs-toggle="popover"
+                <img src="img/zebra.PNG" alt="Hippopotamus" class="animal-img" data-bs-toggle="popover"
                     data-bs-content="差一點！河馬是第三重的陸地動物，成年河馬可以重達1,500-1,800公斤。" data-bs-trigger="hover"
                     data-bs-title="答錯了！" data-bs-placement="bottom" data-bs-custom-class="popover-incorrect">
             </div>
             <div class="image-container">
-                <img src="zebra.PNG" alt="Rhinoceros" class="animal-img" data-bs-toggle="popover"
+                <img src="img/zebra.PNG" alt="Rhinoceros" class="animal-img" data-bs-toggle="popover"
                     data-bs-content="接近了！白犀牛是第二重的陸地動物，成年白犀牛可以重達2,300公斤。" data-bs-trigger="hover" data-bs-title="答錯了！"
                     data-bs-placement="bottom" data-bs-custom-class="popover-incorrect">
             </div>
         </div>
     </section>
+
+
 
     <footer class="footer">
         <p>© 2025 Alethea and Nancy's Zootopia. All rights reserved.</p>
@@ -51,6 +157,57 @@
             return new bootstrap.Popover(popoverTriggerEl)
         })
     </script>
+
+    <script>
+            // Simple carousel behaviour: next/prev, dots, auto-advance
+            (function () {
+                var root = document.querySelector('.carousel-custom');
+                if (!root) return;
+
+                var slidesEl = root.querySelector('.slides');
+                var slides = Array.prototype.slice.call(root.querySelectorAll('.slide'));
+                var prevBtn = root.querySelector('.prev');
+                var nextBtn = root.querySelector('.next');
+                var dots = Array.prototype.slice.call(root.querySelectorAll('.dot'));
+                var current = 0;
+                var interval = 5000; // 5s
+                var timer = null;
+
+                function goTo(i) {
+                    current = (i + slides.length) % slides.length;
+                    slidesEl.style.transform = 'translateX(-' + (current * 100) + '%)';
+                    slides.forEach(function (s, idx) { s.setAttribute('aria-hidden', idx !== current); });
+                    dots.forEach(function (d, idx) { d.classList.toggle('active', idx === current); d.setAttribute('aria-selected', idx === current); });
+                }
+
+                function next() { goTo(current + 1); }
+                function prev() { goTo(current - 1); }
+
+                if (nextBtn) nextBtn.addEventListener('click', function (e) { e.preventDefault(); next(); resetTimer(); });
+                if (prevBtn) prevBtn.addEventListener('click', function (e) { e.preventDefault(); prev(); resetTimer(); });
+
+                dots.forEach(function (dot) { dot.addEventListener('click', function (e) { var i = parseInt(this.dataset.index, 10); goTo(i); resetTimer(); }); });
+
+                function resetTimer() {
+                    if (timer) clearInterval(timer);
+                    timer = setInterval(next, interval);
+                }
+
+                // keyboard support
+                root.addEventListener('keydown', function (e) {
+                    if (e.key === 'ArrowLeft') { prev(); resetTimer(); }
+                    if (e.key === 'ArrowRight') { next(); resetTimer(); }
+                });
+
+                // initialize
+                goTo(0);
+                resetTimer();
+
+                // Make the carousel focusable for keyboard controls
+                root.setAttribute('tabindex', '0');
+            })();
+    </script>
+
 
 </body>
 
