@@ -1,7 +1,7 @@
 html {
     font-family: 'Josefin Sans', sans-serif;
     background-color: #93afcc;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 body {
@@ -19,24 +19,23 @@ body {
 .quiz-area {
     padding-top: 2rem;
     padding-bottom: 2rem;
-    background-color: #93afcc;
+    background-color: #DED9D1;
 }
 
-.quiz-area h2 {
+h2 {
     text-align: center;
     font-family: 'Josefin Sans', sans-serif !important;
     font-size: 2.5rem;
-    margin-bottom: 2rem;
 }
 
 .quize-popover {
     width: 100%;
-    background-color: #93afcc;
+    background-color: #DED9D1;
     display: flex;
     justify-content: center;
     gap: 4rem;
     margin: 0 auto;
-    /* padding: 2rem; */
+    margin-bottom: 10rem;
 }
 
 .image-container {
@@ -46,7 +45,6 @@ body {
 }
 
 .animal-img {
-    background-color: #93afcc;
     width: 15rem;
     height: 15rem;
     object-fit: cover;
@@ -61,7 +59,7 @@ body {
 
 .popover {
     max-width: 20.5rem;
-    border-width: 2px;
+    border-width: 0.125rem;
     /* border-radius: 50%; */
 }
 
@@ -78,7 +76,7 @@ body {
 
 .popover-correct .popover-body {
     background-color: #d4edda;
-    padding: 15px;
+    padding: 0.9375rem;
     text-align: center;
     color: #155724;
 }
@@ -96,7 +94,7 @@ body {
 
 .popover-incorrect .popover-body {
     background-color: #f8d7da;
-    padding: 15px;
+    padding: 0.9375rem;
     text-align: center;
     color: #721c24;
 }
@@ -104,39 +102,44 @@ body {
 /* 比較 */
 .comparison {
     display: flex;
-    justify-content: center; /* 水平居中 */
-    max-width: 62rem; /* 限制最大寬度 */
+    justify-content: center;
+    /* 水平居中 */
+    max-width: 62rem;
+    /* 限制最大寬度 */
     margin: 0 auto;
-    padding: 20px;
+    padding: 1.25rem;
 
 }
+
 .left-panel {
-    flex: 0 0 35%; 
+    flex: 0 0 35%;
     width: 50%;
-    padding: 0 20px;
-    display: flex; 
+    padding: 0 1.25rem;
+    display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 0.9375rem;
 }
+
 .right-panel {
-    flex: 0 0 65%; 
+    flex: 0 0 65%;
     width: 50%;
-    padding: 0 20px;
-    display: flex; 
+    padding: 0 1.25rem;
+    display: flex;
     flex-direction: column;
-    gap: 15px; 
+    gap: 0.9375rem;
 }
 
 .item-small {
     display: flex;
     flex-direction: column;
-    align-items: center; /* 讓圖片和小文字居中 */
-    padding: 10px;
+    align-items: center;
+    /* 讓圖片和小文字居中 */
+    padding: 0.625rem;
 }
 
 .item-small img {
     width: 9.5rem;
-    height: 9.5rem; 
+    height: 9.5rem;
     transform: scale(1.4);
     object-fit: cover;
 }
@@ -144,72 +147,188 @@ body {
 .item-long {
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
-    padding: 10px;
+    align-items: flex-start;
+    padding: 0.625rem;
 }
 
 .item-long img {
-    width: auto; /* 更寬 */
-    height: 9.5rem; /* 保持與小照片高度一致 */
+    width: auto;
+    /* 更寬 */
+    height: 9.5rem;
+    /* 保持與小照片高度一致 */
     object-fit: cover;
 }
 
 .caption {
-    margin-top: 5px;
+    margin-top: 0.3125rem;
     font-size: 1.4rem;
     color: #393333;
     text-align: center;
 }
 
-/* Carousel styles:  */
-.carousel-custom {
-    max-width: 980px;
-    margin: 36px auto;
-    position: relative;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    overflow: hidden;
-    background: #fff;
+/* Carousel styles: make carousel area wider (≈80%) and use page background */
+.carousel-row {
+    width: 100%;
+    /* full-width row background: use semi-transparent version of #DED9D1 */
+    background-color: rgba(222, 217, 209, 0.85);
+    padding: 2.25rem 0;
+    /* vertical spacing for the row */
 }
+
+.carousel-custom {
+    width: 80%;
+    max-width: 75rem;
+    /* 1200px */
+    margin: 0 auto;
+    position: relative;
+    overflow: visible;
+    /* allow arrows to sit outside the carousel area */
+    background: transparent;
+    /* inner carousel is transparent so row shows through */
+}
+
+/* slides-wrapper masks slides so only the active one is visible during transforms */
+.slides-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
 .carousel-custom .slides {
     display: flex;
-    transition: transform 0.52s cubic-bezier(.22,.9,.32,1);
+    transition: transform 0.52s cubic-bezier(.22, .9, .32, 1);
     will-change: transform;
-    
 }
+
 .carousel-custom .slide {
     flex: 0 0 100%;
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 1.5rem;
     padding: 1.5rem 1.5rem;
 }
+
 .carousel-custom .slide img {
-    width: 35%;
-    max-height: 17rem;
-    object-fit: cover;
+    width: 40%;
+    max-height: 20rem;
+    /* slightly larger to reduce cropping */
+    object-fit: contain;
+    /* avoid cutting off tall images */
     border-radius: 0.8rem;
     box-shadow: none;
     margin-left: 1.1rem;
+    background: transparent;
 }
+
 .carousel-custom .slide .slide-text {
-    width: 55%;padding-right: 0.2rem;
+    width: 55%;
+    padding-right: 0.2rem;
 }
-.carousel-custom .slide h3 { margin: 0 0 8px; font-size: 1.45rem; }
-.carousel-custom .slide p { margin: 0;  font-size: 1.05rem;color: #555; line-height: 1.5; }
 
-.carousel-custom .controls { position: absolute; top: 50%; transform: translateY(-50%); width: 100%; pointer-events: none; z-index: 20; }
-.carousel-custom .controls button { pointer-events: all; background: rgba(255,255,255,0.9); border: 0; width: 42px; height: 42px; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; z-index: 30; }
-.carousel-custom .controls .prev { position: absolute; left: 12px; }
-.carousel-custom .controls .next { position: absolute; right: 12px; }
+.carousel-custom .slide h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.45rem;
+}
 
-.carousel-custom .dots { text-align:center; padding: 12px 0 18px; background: #fafafa; }
-.carousel-custom .dot { display:inline-block; width:10px; height:10px; border-radius:50%; background:#ddd; margin:0 6px; cursor:pointer; }
-.carousel-custom .dot.active { background:#333; }
+.carousel-custom .slide p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.5;
+}
 
-@media (max-width:800px){
-    .carousel-custom .slide { flex-direction: column; }
-    .carousel-custom .slide img, .carousel-custom .slide .slide-text { width:100%; }
-    .carousel-custom .slide img { max-height:220px; }
+.carousel-custom .controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* Arrow buttons: keep only the arrow glyph, no circular background */
+.carousel-custom .controls button {
+    pointer-events: all;
+    background: transparent;
+    border: 0;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+    z-index: 40;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    /* larger arrow */
+    color: #2c344e;
+    /* darker color for visibility */
+    padding: 0.375rem 0.625rem;
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.carousel-custom .controls .prev {
+    position: absolute;
+    left: 10vw;
+    /* 10% from left viewport edge */
+}
+
+.carousel-custom .controls .next {
+    position: absolute;
+    right: 10vw;
+    /* 10% from right viewport edge */
+}
+
+/* Hover/touch feedback: slightly enlarge arrow on hover/focus */
+.carousel-custom .controls button:hover,
+.carousel-custom .controls button:focus {
+    transform: scale(1.15);
+    color: #1f2a3a;
+}
+
+.carousel-custom .dots {
+    text-align: center;
+    padding: 0.75rem 0 1.125rem;
+    background: transparent;
+}
+
+.carousel-custom .dot {
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: #a9a9a9;
+    /* more visible inactive color */
+    margin: 0 0.375rem;
+    cursor: pointer;
+    transition: transform 0.12s ease, background-color 0.12s ease;
+}
+
+.carousel-custom .dot.active {
+    background: #2c344e;
+    /* darker primary color for active */
+}
+
+/* enlarge on hover for dots */
+.carousel-custom .dot:hover {
+    transform: scale(1.25);
+}
+
+@media (max-width: 50rem) {
+
+    /* 800px */
+    .carousel-custom .slide {
+        flex-direction: column;
+    }
+
+    .carousel-custom .slide img,
+    .carousel-custom .slide .slide-text {
+        width: 100%;
+    }
+
+    .carousel-custom .slide img {
+        max-height: 13.75rem;
+        /* 220px */
+    }
 }
