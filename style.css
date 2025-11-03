@@ -2,6 +2,7 @@ html {
     font-family: "Josefin Sans", sans-serif;
     background-color: #FFFFF7;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 *,
@@ -28,6 +29,7 @@ html {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-left: 2rem;
 }
 
 .logoword {
@@ -47,6 +49,7 @@ html {
     margin: 0;
     align-items: center;
     text-decoration: none;
+    margin-right: 0.8rem;
 }
 
 .nav-item {
@@ -98,7 +101,24 @@ html {
     width: 100%;
     margin: 1.5rem 0;
 }
-
+/* funfact入口 */
+.funfact-intro {
+    background-color: #FFFFF7;
+    padding: 2rem 0 6rem 0 ;
+    display: flex;
+    gap: 1.5rem;
+    max-width: 65rem;
+    margin: 2rem auto;
+    justify-content: center;
+    align-items: center;
+}
+.funfact-intro img{
+    width: 23.5rem;
+    border-radius: 4rem;
+    flex: 1;
+    gap: 1rem;
+    border: #faebc9 0.3rem double;
+}
 /* nancy圖片牆 */
 .imagewall {
     width: 100%;
