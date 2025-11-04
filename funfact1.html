@@ -43,8 +43,8 @@
     <div class="carousel-row">
         <section class="carousel-custom" aria-label="Fun facts carousel">
             <div class="controls">
-                <button class="prev" aria-label="Previous slide">‹</button>
-                <button class="next" aria-label="Next slide">›</button>
+                <button class="prev" aria-label="Previous slide"></button>
+                <button class="next" aria-label="Next slide"></button>
             </div>
             <h2>Animal fun fact about ORGANS</h2>
             <div class="slides-wrapper">
@@ -118,8 +118,6 @@
 
     <h2>Animal Organ Count Showdown</h2>
     <section class="comparison">
-
-
         <div class="left-panel">
             <div class="item-small">
                 <img src="img/octopus.png" alt="小照片 1 說明">
@@ -158,23 +156,33 @@
         </div>
     </section>
 
+    <br>
 
     <section class="quiz-area">
-        <h2>Which is the heaviest?</h2>
+        <div class="container-line-container">
+            <div class="container-line">
+                <img src="img\octopus=3.png" alt="organs question clue1" class="clue-img">
+                <div class="vertical-line"></div>
+                <img src="img\cow=4.png" alt="organs question clue2" class="clue-img">
+                <div class="vertical-line"></div>
+                <img src="img\bee=5.png" alt="organs question clue3" class="clue-img">
+            </div>
+        </div>
+        <img src="img/organs question.png" alt="organs question" class="question-img">
 
         <div class="quize-popover">
             <div class="image-container">
-                <img src="img/zebra.PNG" alt="Elephant" class="animal-img" data-bs-toggle="popover"
-                    data-bs-content="正確！非洲象是地球上最重的陸地動物，成年公象可以重達6,000公斤！" data-bs-trigger="hover" data-bs-title="答對了！"
+                <img src="img/27.PNG" alt="Elephant" class="opction-img" data-bs-toggle="popover"
+                    data-bs-content="(4+5)*3=27" data-bs-trigger="hover" data-bs-title="correct!"
                     data-bs-placement="bottom" data-bs-custom-class="popover-correct">
             </div>
             <div class="image-container">
-                <img src="img/zebra.PNG" alt="Hippopotamus" class="animal-img" data-bs-toggle="popover"
+                <img src="img/13.PNG" alt="Hippopotamus" class="opction-img" data-bs-toggle="popover"
                     data-bs-content="差一點！河馬是第三重的陸地動物，成年河馬可以重達1,500-1,800公斤。" data-bs-trigger="hover"
                     data-bs-title="答錯了！" data-bs-placement="bottom" data-bs-custom-class="popover-incorrect">
             </div>
             <div class="image-container">
-                <img src="img/zebra.PNG" alt="Rhinoceros" class="animal-img" data-bs-toggle="popover"
+                <img src="img/22.PNG" alt="Rhinoceros" class="opction-img" data-bs-toggle="popover"
                     data-bs-content="接近了！白犀牛是第二重的陸地動物，成年白犀牛可以重達2,300公斤。" data-bs-trigger="hover" data-bs-title="答錯了！"
                     data-bs-placement="bottom" data-bs-custom-class="popover-incorrect">
             </div>
@@ -191,10 +199,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // 初始化所有的 popovers
+        // 初始化所有的 popovers 並強制從下方出現，使用 body 做為容器以避免被父元素遮罩
         var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-            return new bootstrap.Popover(popoverTriggerEl)
+            return new bootstrap.Popover(popoverTriggerEl, {
+                placement: 'bottom',
+                container: 'body'
+            })
         })
     </script>
 

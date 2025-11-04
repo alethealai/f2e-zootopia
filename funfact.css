@@ -1,7 +1,7 @@
 html {
     font-family: 'Josefin Sans', sans-serif;
-    background-color: #93afcc;
     font-size: 1rem;
+    background-color: #FFFFF7;
 }
 
 body {
@@ -28,6 +28,26 @@ h2 {
     font-size: 2.5rem;
 }
 
+.container-line-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container-line {
+    margin-top: 1.25rem;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clue-img {
+    width: 15rem;
+    height: auto;
+    margin: 0 auto 1.25rem;
+}
+
 .quize-popover {
     width: 100%;
     background-color: #DED9D1;
@@ -35,7 +55,7 @@ h2 {
     justify-content: center;
     gap: 4rem;
     margin: 0 auto;
-    margin-bottom: 10rem;
+    margin-bottom: 8rem;
 }
 
 .image-container {
@@ -44,7 +64,7 @@ h2 {
     position: relative;
 }
 
-.animal-img {
+.opction-img {
     width: 15rem;
     height: 15rem;
     object-fit: cover;
@@ -52,6 +72,17 @@ h2 {
     /* border-radius: 50%; */
     /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); */
 }
+
+/* Question image (controls sizing and centering) */
+.question-img {
+    display: block;
+    max-width: 36rem;
+    width: 90%;
+    height: auto;
+    margin: 0 auto 1.25rem;
+}
+
+
 
 .image-container:hover {
     transform: scale(1.1);
@@ -103,12 +134,9 @@ h2 {
 .comparison {
     display: flex;
     justify-content: center;
-    /* 水平居中 */
     max-width: 62rem;
-    /* 限制最大寬度 */
     margin: 0 auto;
     padding: 1.25rem;
-
 }
 
 .left-panel {
@@ -170,7 +198,7 @@ h2 {
 .carousel-row {
     width: 100%;
     /* full-width row background: use semi-transparent version of #DED9D1 */
-    background-color: rgba(222, 217, 209, 0.85);
+    background-color: #DED9D1;
     padding: 2.25rem 0;
     /* vertical spacing for the row */
 }
@@ -257,34 +285,31 @@ h2 {
     box-shadow: none;
     cursor: pointer;
     z-index: 40;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.2rem;
-    /* larger arrow */
-    color: #2c344e;
-    /* darker color for visibility */
-    padding: 0.375rem 0.625rem;
-    transition: transform 0.15s ease, color 0.15s ease;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    border: none;
+    padding: 0;
+    color: transparent;
+    background: transparent;
+    cursor: pointer;
+    z-index: 40;
 }
 
 .carousel-custom .controls .prev {
-    position: absolute;
-    left: 10vw;
-    /* 10% from left viewport edge */
+    left: 0;
 }
 
 .carousel-custom .controls .next {
-    position: absolute;
-    right: 10vw;
-    /* 10% from right viewport edge */
+    right: 0;
 }
 
-/* Hover/touch feedback: slightly enlarge arrow on hover/focus */
+/* Remove hover effects since buttons are invisible */
 .carousel-custom .controls button:hover,
 .carousel-custom .controls button:focus {
-    transform: scale(1.15);
-    color: #1f2a3a;
+    outline: none;
+    background: transparent;
 }
 
 .carousel-custom .dots {
