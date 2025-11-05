@@ -13,6 +13,24 @@ html {
     padding: 0;
 }
 
+h1 {
+    text-align: center;
+    font-size: 10rem;
+    display: block;
+    padding-top: 5rem;
+    background-color: #FFFFF7;
+    color: #675642;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    display: block;
+    color: #5d4c3b;
+    font-weight: bold;
+    padding-top: 2rem;
+}
+
 .wait-for-final-exam {
     padding: 10rem;
     height: 100vh;
@@ -76,14 +94,68 @@ html {
     color: #FFFFF7;
     font-weight: bold;
     text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #faebc9;
+    transform: scale(1.1);
+}
+
+/* Dropdown styles */
+.nav-item {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4a3d2f;
+    width: 100%;
+    min-width: 120px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    border-radius: 4px;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+.dropdown-menu a {
+    color: #FFFFF7;
+    padding: 0.7rem 1rem;
+    text-decoration: none;
+    display: block;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background-color: #5d4c3b;
+    color: #faebc9;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
 }
 
 .content-container {
     width: 100%;
-    height: 5rem;
+    height: 23rem;
     background-color: #FFFFF7;
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
+}
+
+.content-container p {
+    text-align: center;
+    padding-top: 1.5rem;
+    font-size: 1.25rem;
+    line-height: 2.5rem;
+    color: #2c344e;
 }
 
 .subtitle {
@@ -91,8 +163,7 @@ html {
     background-color: #DED9D1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 4rem 0;
+    padding-bottom: 4rem;
 }
 
 .subtitle-container {
@@ -116,21 +187,146 @@ html {
 /* funfact入口 */
 .funfact-intro {
     background-color: #FFFFF7;
-    padding: 2rem 0 6rem 0;
-    display: flex;
-    gap: 1.5rem;
-    max-width: 65rem;
+    width: 85vw;
+    padding: 2rem 0;
     margin: 2rem auto;
+    display: flex;
     justify-content: center;
-    align-items: center;
+    gap: 1rem;
+    perspective: 1000px;
 }
 
-.funfact-intro img {
-    width: 23.5rem;
-    border-radius: 4rem;
+.funfact-img {
     flex: 1;
-    gap: 1rem;
-    border: #faebc9 0.3rem double;
+    position: relative;
+    min-width: 0;
+    /* 允許flex item縮小 */
+    max-width: 28rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+    transform-origin: center center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.funfact-img.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(-6px);
+    z-index: 3;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+}
+
+/* 共用的hover效果基礎樣式 - 使用 data-text 屬性  */
+.funfact-img::before {
+    /* show the per-image text via data-text */
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(93, 76, 59, 0.7);
+    display: flex;
+    align-items: center;
+    color: #FFFFF7;
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 1;
+    padding: 2rem;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    pointer-events: none;
+    /* allow clicks to pass through overlay */
+}
+
+.funfact-img:hover::before {
+    opacity: 1;
+}
+
+/* 圓形按鈕樣式（仍在右下） */
+.funfact-img:hover::after {
+    content: "→";
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: #FFFFF7;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #675642;
+    font-size: 1.8rem;
+    font-weight: bold;
+    z-index: 2;
+    cursor: pointer;
+    transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
+    /* make the arrow clickable */
+}
+
+.funfact-img:hover::after:hover {
+    background-color: #675642;
+    color: #FFFFF7;
+}
+
+.funfact-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.funfact-img:hover {
+    transform: scale(1.08) translateY(-10px);
+    z-index: 2;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.funfact-img:not(:hover) {
+    transform: scale(0.95);
+    opacity: 0.85;
+}
+
+/* Responsive styles */
+@media (max-width: 800px) {
+    .funfact-intro {
+        flex-direction: column;
+        width: 90vw;
+        align-items: center;
+    }
+
+    .funfact-img {
+        width: 100%;
+        max-width: 28rem;
+    }
+
+    .funfact-img:not(:hover) {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+
+
+/* Responsive: on narrow screens stack the items vertically */
+@media (max-width: 800px) {
+    .funfact-intro {
+        flex-wrap: wrap;
+        width: 90vw;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .funfact-img {
+        flex: 1 1 100%;
+        min-width: 0;
+    }
 }
 
 /* nancy圖片牆 */
@@ -193,6 +389,12 @@ html {
     font-size: 1em;
     color: #555;
     line-height: 1.6;
+}
+
+.grid-item:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
 }
 
 .footer {

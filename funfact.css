@@ -22,12 +22,6 @@ body {
     background-color: #DED9D1;
 }
 
-h2 {
-    text-align: center;
-    font-family: 'Josefin Sans', sans-serif !important;
-    font-size: 2.5rem;
-}
-
 .container-line-container {
     width: 100%;
     display: flex;
@@ -46,6 +40,11 @@ h2 {
     width: 15rem;
     height: auto;
     margin: 0 auto 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.clue-img:hover {
+    transform: scale(1.2);
 }
 
 .quize-popover {
@@ -73,6 +72,7 @@ h2 {
     /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); */
 }
 
+
 /* Question image (controls sizing and centering) */
 .question-img {
     display: block;
@@ -82,10 +82,8 @@ h2 {
     margin: 0 auto 1.25rem;
 }
 
-
-
 .image-container:hover {
-    transform: scale(1.1);
+    transform: scale(1.3);
 }
 
 .popover {
@@ -258,7 +256,7 @@ h2 {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    padding: 1.5rem 1.5rem;
+    /* padding: 1.5rem 1.5rem; */
 }
 
 .carousel-custom .slide img {

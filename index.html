@@ -28,7 +28,12 @@
                         <a href="index.html" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="funfact1.html" class="nav-link">Fun facts</a>
+                        <a href="#" class="nav-link">Fun facts</a>
+                        <div class="dropdown-menu">
+                            <a href="funfact1.html">Organs</a>
+                            <a href="funfactSleeping.html">Sleeping</a>
+                            <a href="funfact3.html">Fun fact 3</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a href="surpport.html" class="nav-link">Support</a>
@@ -42,39 +47,92 @@
 
         <section class="content-container">
             <h1>Zootopia</h1>
+            <p>This is a website about animal fun facts a place where nature's humor, life's wonders,<br>
+                and hidden secrets all come to life.</p>
         </section>
 
-        <section class="subtitle">
-            <div class="subtitle-container">
-                <hr class="line">
-                <p>“If we can teach people about wildlife, they will be touched. Share my wildlife with me. Because
-                    humans want to save things that they love.”
-                    — Steve Irwin
-                </p>
-                <hr class="line">
-            </div>
-        </section>
-
+        <h2>Start to explore</h2>
         <section class="funfact-intro">
-            <div class="funfact-img">
-                <a href="funfact1.html">
-                    <img src="img/funfact1.png" alt="ff1">
-                </a>
+            <div class="funfact-img" data-href="funfact1.html" data-text="ANIMAL FUN FACT ABOUT ORGANS">
+                <img src="img/funfact1.png" alt="ff1">
             </div>
-            <div class="funfact-img">
-                <a href="funfactSleeping.html">
-                    <img src="img/funfact2.png" alt="ff2">
-                </a>
-
+            <div class="funfact-img" data-href="funfactSleeping.html" data-text="ANIMAL FUN FACT ABOUT SLEEPING">
+                <img src="img/funfact2.png" alt="ff2">
             </div>
-            <div class="funfact-img">
-                <a href="funfact3.htmll">
-                    <img src="img/funfact3.png" alt="ff3">
-                </a>
+            <div class="funfact-img" data-href="funfact3.html" data-text="Unveil on Dec 26">
+                <img src="img/funfact3.png" alt="ff3">
             </div>
-
-
         </section>
+
+        <div class="funfact-dots" aria-hidden="false">
+            <span class="dot active" data-index="0" role="tab" aria-selected="true"></span>
+            <span class="dot" data-index="1" role="tab" aria-selected="false"></span>
+            <span class="dot" data-index="2" role="tab" aria-selected="false"></span>
+        </div>
+
+        <script>
+            // 為圓形箭頭按鈕添加點擊事件
+            document.querySelectorAll('.funfact-img').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    // 檢查是否點擊了箭頭按鈕（::after 偽元素）
+                    const rect = item.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    // 如果點擊位置在右側箭頭區域
+                    if (x > rect.width - 100) {  // 箭頭按鈕區域大約在右側 100px
+                        const href = item.getAttribute('data-href');
+                        if (href) {
+                            window.location.href = href;
+                        }
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            // Simple carousel for the three funfact images
+            (function () {
+                const container = document.querySelector('.funfact-intro');
+                if (!container) return;
+
+                const slides = Array.from(container.querySelectorAll('.funfact-img'));
+                const dots = Array.from(document.querySelectorAll('.funfact-dots .dot'));
+                let current = 0;
+                const interval = 4000; // ms
+                let timer = null;
+
+                function show(i) {
+                    current = (i + slides.length) % slides.length;
+                    slides.forEach((s, idx) => {
+                        s.classList.toggle('active', idx === current);
+                    });
+                    if (dots.length) dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+                }
+
+                function next() { show(current + 1); }
+                function start() { stop(); timer = setInterval(next, interval); }
+                function stop() { if (timer) { clearInterval(timer); timer = null; } }
+                function reset() { start(); }
+
+                // dots click
+                dots.forEach(d => d.addEventListener('click', (e) => {
+                    const i = parseInt(d.dataset.index, 10) || 0;
+                    show(i);
+                    reset();
+                }));
+
+                // pause auto-advance when user hovers the carousel
+                container.addEventListener('mouseenter', stop);
+                container.addEventListener('mouseleave', start);
+
+                // initialize
+                show(0);
+                start();
+            })();
+        </script>
+
+        <h2 style="background-color: #DED9D1;padding-top: 2rem;">Animal Profiles</h2>
         <section class="imagewall">
             <div class="image-grid">
                 <div class="two-column-container">
@@ -181,9 +239,16 @@
                     </div>
                 </div>
         </section>
-
-        <section class="content-container">
-
+        <section class="subtitle">
+            <div class="subtitle-container">
+                <hr class="line">
+                <p>“If we can teach people about wildlife, they will be touched.
+                    <br>Share my wildlife with me.
+                    <br>Because humans want to save things that they love.”
+                    — Steve Irwin
+                </p>
+                <hr class="line">
+            </div>
         </section>
     </div>
 
