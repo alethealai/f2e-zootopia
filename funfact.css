@@ -157,6 +157,7 @@ h2 {
     gap: 0.9375rem;
 }
 
+
 .item-small {
     display: flex;
     flex-direction: column;
@@ -186,14 +187,38 @@ h2 {
     /* 保持與小照片高度一致 */
     object-fit: cover;
 }
-
+.item-long-sleep  {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.625rem;
+}
+.item-long-sleep img {
+    height: 5.5rem;
+    width: auto;
+    object-fit: cover;
+}
+.small-giraffe{
+  transform: scale(0.9);
+}
 .caption {
     margin-top: 0.3125rem;
     font-size: 1.4rem;
     color: #393333;
     text-align: center;
 }
-
+.caption1 {
+    margin-top: 0.6rem;
+    font-size: 1.4rem;
+    color: #393333;
+    text-align: center;
+}
+.caption2 {
+    margin-top: 0.3125rem;
+    font-size: 1.05rem;
+    color: #6d6969;
+    text-align: left;
+}
 /* Carousel styles: make carousel area wider (≈80%) and use page background */
 .carousel-row {
     width: 100%;
