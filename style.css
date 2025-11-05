@@ -187,108 +187,146 @@ h2 {
 /* funfact入口 */
 .funfact-intro {
     background-color: #FFFFF7;
-    padding-bottom: 2rem;
-    display: flex;
-    gap: 2rem;
-    width: 80vw;
+    width: 85vw;
+    padding: 2rem 0;
     margin: 2rem auto;
-    justify-content: space-between;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    perspective: 1000px;
 }
 
 .funfact-img {
-    position: relative;
-    overflow: hidden;
-    border-radius: 2rem;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.funfact-img:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.funfact-img a {
-    display: block;
-}
-
-/* 設定各種滑鼠狀態 */
-.funfact-img:hover {
-    cursor: pointer;
-}
-
-.funfact-img:active {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
-}
-
-/* 第一張圖片 (Organs) */
-.funfact-img:nth-child(1):hover::before {
-    content: "ANIMAL FUN FACT ABOUT ORGANS";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(93, 76, 59, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFFFF7;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    padding-top: 3rem;
-    z-index: 1;
-}
-
-/* 第二張圖片 (Sleeping) */
-.funfact-img:nth-child(2):hover::before {
-    content: "ANIMAL FUN FACT ABOUT SLEEPING";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(93, 76, 59, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFFFF7;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    padding-top: 3rem;
-    z-index: 1;
-}
-
-/* 第三張圖片 (Coming Soon) */
-.funfact-img:nth-child(3):hover::before {
-    content: "Unveil on Dec 26";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(93, 76, 59, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFFFF7;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    padding-top: 3rem;
-    z-index: 1;
-}
-
-.funfact-intro img {
-    display: block;
-    transition: all 0.3s ease;
     flex: 1;
-    gap: 1rem;
-    /* border: #faebc9 0.3rem double; */
+    position: relative;
+    min-width: 0;
+    /* 允許flex item縮小 */
+    max-width: 28rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+    transform-origin: center center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.funfact-img.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(-6px);
+    z-index: 3;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+}
+
+/* 共用的hover效果基礎樣式 - 使用 data-text 屬性  */
+.funfact-img::before {
+    /* show the per-image text via data-text */
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(93, 76, 59, 0.7);
+    display: flex;
+    align-items: center;
+    color: #FFFFF7;
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 1;
+    padding: 2rem;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    pointer-events: none;
+    /* allow clicks to pass through overlay */
+}
+
+.funfact-img:hover::before {
+    opacity: 1;
+}
+
+/* 圓形按鈕樣式（仍在右下） */
+.funfact-img:hover::after {
+    content: "→";
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: #FFFFF7;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #675642;
+    font-size: 1.8rem;
+    font-weight: bold;
+    z-index: 2;
+    cursor: pointer;
+    transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
+    /* make the arrow clickable */
+}
+
+.funfact-img:hover::after:hover {
+    background-color: #675642;
+    color: #FFFFF7;
+}
+
+.funfact-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.funfact-img:hover {
+    transform: scale(1.08) translateY(-10px);
+    z-index: 2;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.funfact-img:not(:hover) {
+    transform: scale(0.95);
+    opacity: 0.85;
+}
+
+/* Responsive styles */
+@media (max-width: 800px) {
+    .funfact-intro {
+        flex-direction: column;
+        width: 90vw;
+        align-items: center;
+    }
+
+    .funfact-img {
+        width: 100%;
+        max-width: 28rem;
+    }
+
+    .funfact-img:not(:hover) {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+
+
+/* Responsive: on narrow screens stack the items vertically */
+@media (max-width: 800px) {
+    .funfact-intro {
+        flex-wrap: wrap;
+        width: 90vw;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .funfact-img {
+        flex: 1 1 100%;
+        min-width: 0;
+    }
 }
 
 /* nancy圖片牆 */
