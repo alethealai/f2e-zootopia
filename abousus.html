@@ -82,6 +82,22 @@
                 <p>© 2025 Alethea and Nancy's Zootopia. All rights reserved.</p>
             </div>
         </footer>
+        <!-- 回到頂部按鈕 -->
+        <button id="backToTop" title="回到最上面"></button>
+
+        <!-- 回頂部功能 JS -->
+        <script>
+            const backToTopBtn = document.getElementById('backToTop');
+
+            // 點擊按鈕時平滑回到最上面
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        </script>
+
 </body>
 
 </html>

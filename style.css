@@ -2,6 +2,7 @@ html {
     font-family: "Josefin Sans", sans-serif;
     background-color: #FFFFF7;
     font-size: 16px;
+    scroll-behavior: smooth;
     /* overflow-x: hidden; */
 }
 
@@ -471,4 +472,43 @@ h2 {
     background-color: #675642;
     color: #FFFFF7;
     font-size: 1rem;
+}
+
+#backToTop {
+    position: fixed;
+    /* 永遠固定在畫面 */
+    bottom: 2rem;
+    /* 離底部距離 */
+    right: 2rem;
+    /* 離右邊距離 */
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    /* 圓形按鈕 */
+    background-color: #f2eede;
+    color: #FFFFF7;
+    /* 文字顏色 */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    z-index: 9999;
+}
+
+/* 滑鼠懸停時放大、變亮 */
+#backToTop:hover {
+    transform: scale(1.1);
+    background-color: #FFFFF7;
+}
+
+/* 箭頭符號 */
+#backToTop::before {
+    content: "↑";
+    color: #675642;
+    font-weight: bold;
 }
