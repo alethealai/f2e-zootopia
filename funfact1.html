@@ -121,6 +121,17 @@
     <!-- 比較 -->
     <br>
     <br>
+    <div class="step">
+            <div class="step1">
+                <img src="img/favicon.png" alt="">
+            </div>
+            <div class="step2">
+                <img src="img/favicon.png" alt="">
+            </div>
+            <div class="step3">
+                <img src="img/favicon.png" alt="">
+            </div>
+        </div>
 
     <h2>Animal Organ Count Showdown</h2>
     <section class="comparison">
@@ -175,21 +186,24 @@
                 <img src="img\bee=5.png" alt="organs question clue3" class="clue-img">
             </div>
         </div>
+
         <img src="img/organs question.png" alt="organs question" class="question-img">
 
         <div class="quize-popover">
             <div class="image-container">
                 <img src="img/27.PNG" alt="27" class="opction-img" data-bs-toggle="popover" data-bs-content="(4+5)*3=27"
-                    data-bs-trigger="hover" data-bs-title="correct!" data-bs-placement="bottom"
+                    data-bs-trigger="hover" data-bs-title="correct" data-bs-placement="bottom"
                     data-bs-custom-class="popover-correct">
             </div>
             <div class="image-container">
-                <img src="img/13.PNG" alt="13" class="opction-img" data-bs-toggle="popover" data-bs-trigger="hover"
-                    data-bs-title="error！" data-bs-placement="bottom" data-bs-custom-class="popover-incorrect">
+                <img src="img/13.PNG" alt="13" class="opction-img" data-bs-toggle="popover" data-bs-content="try again"
+                    data-bs-trigger="hover" data-bs-title="error" data-bs-placement="bottom"
+                    data-bs-custom-class="popover-incorrect">
             </div>
             <div class="image-container">
-                <img src="img/22.PNG" alt="22" class="opction-img" data-bs-toggle="popover" data-bs-trigger="hover"
-                    data-bs-title="error！" data-bs-placement="bottom" data-bs-custom-class="popover-incorrect">
+                <img src="img/22.PNG" alt="22" class="opction-img" data-bs-toggle="popover" data-bs-content="try again"
+                    data-bs-trigger="hover" data-bs-title="error" data-bs-placement="bottom"
+                    data-bs-custom-class="popover-incorrect">
             </div>
         </div>
     </section>
@@ -294,7 +308,21 @@
                 root.setAttribute('tabindex', '0');
             })();
     </script>
+    <!-- 回到頂部按鈕 -->
+    <button id="backToTop" title="回到最上面"></button>
 
+    <!-- 回頂部功能 JS -->
+    <script>
+        const backToTopBtn = document.getElementById('backToTop');
+
+        // 點擊按鈕時平滑回到最上面
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
 </body>
 
