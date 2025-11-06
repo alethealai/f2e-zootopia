@@ -20,6 +20,7 @@ body {
     padding-top: 2rem;
     padding-bottom: 2rem;
     background-color: #DED9D1;
+    max-width: 100vw;
 }
 
 .container-line-container {
@@ -59,6 +60,8 @@ body {
 
 .image-container {
     padding: 1rem;
+    width: 15rem;
+    height: 15rem;
     transition: transform 0.3s ease;
     position: relative;
 }
@@ -93,18 +96,18 @@ body {
 }
 
 .popover-correct {
-    border-color: #28a745;
-}
-
-.popover-correct .popover-header {
-    background-color: #28a745;
+    /* border-color: #5bae6e; */
     color: white;
     text-align: center;
     font-weight: bold;
 }
 
+.popover-correct .popover-header {
+    background-color: #468755;
+}
+
 .popover-correct .popover-body {
-    background-color: #d4edda;
+    background-color: #FFFFF7;
     padding: 0.9375rem;
     text-align: center;
     color: #155724;
