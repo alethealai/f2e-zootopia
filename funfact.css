@@ -2,10 +2,12 @@ html {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1rem;
     background-color: #FFFFF7;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Josefin Sans', sans-serif;
+    background-color: #FFFFF7;
 }
 
 *,
@@ -20,7 +22,12 @@ body {
     padding-top: 2rem;
     padding-bottom: 2rem;
     background-color: #DED9D1;
-    max-width: 100vw;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif !important;
+    font-size: 2.5rem;
 }
 
 .container-line-container {
@@ -41,11 +48,6 @@ body {
     width: 15rem;
     height: auto;
     margin: 0 auto 1.25rem;
-    transition: all 0.3s ease;
-}
-
-.clue-img:hover {
-    transform: scale(1.2);
 }
 
 .quize-popover {
@@ -60,8 +62,6 @@ body {
 
 .image-container {
     padding: 1rem;
-    width: 15rem;
-    height: 15rem;
     transition: transform 0.3s ease;
     position: relative;
 }
@@ -75,7 +75,6 @@ body {
     /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); */
 }
 
-
 /* Question image (controls sizing and centering) */
 .question-img {
     display: block;
@@ -85,8 +84,10 @@ body {
     margin: 0 auto 1.25rem;
 }
 
+
+
 .image-container:hover {
-    transform: scale(1.3);
+    transform: scale(1.1);
 }
 
 .popover {
@@ -96,18 +97,18 @@ body {
 }
 
 .popover-correct {
-    /* border-color: #5bae6e; */
+    border-color: #28a745;
+}
+
+.popover-correct .popover-header {
+    background-color: #28a745;
     color: white;
     text-align: center;
     font-weight: bold;
 }
 
-.popover-correct .popover-header {
-    background-color: #468755;
-}
-
 .popover-correct .popover-body {
-    background-color: #FFFFF7;
+    background-color: #d4edda;
     padding: 0.9375rem;
     text-align: center;
     color: #155724;
@@ -131,13 +132,14 @@ body {
     color: #721c24;
 }
 
+/* 比較 */
 .comparison {
     display: flex;
     justify-content: center;
     max-width: 62rem;
     margin: 0 auto;
     padding: 1.25rem;
-    /* background-color: #FFFFF7; */
+    background-color: #FFFFF7;
 }
 
 .left-panel {
@@ -188,45 +190,38 @@ body {
     /* 保持與小照片高度一致 */
     object-fit: cover;
 }
-
-.item-long-sleep {
+.item-long-sleep  {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0.625rem;
 }
-
 .item-long-sleep img {
     height: 5.5rem;
     width: auto;
     object-fit: cover;
 }
-
-.small-giraffe {
-    transform: scale(0.9);
+.small-giraffe{
+  transform: scale(0.9);
 }
-
 .caption {
     margin-top: 0.3125rem;
     font-size: 1.4rem;
     color: #393333;
     text-align: center;
 }
-
 .caption1 {
     margin-top: 0.6rem;
     font-size: 1.4rem;
     color: #393333;
     text-align: center;
 }
-
 .caption2 {
     margin-top: 0.3125rem;
     font-size: 1.05rem;
     color: #6d6969;
     text-align: left;
 }
-
 /* Carousel styles: make carousel area wider (≈80%) and use page background */
 .carousel-row {
     width: 100%;
@@ -266,7 +261,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    /* padding: 1.5rem 1.5rem; */
+    padding: 1.5rem 1.5rem;
 }
 
 .carousel-custom .slide img {
@@ -374,7 +369,6 @@ body {
 }
 
 @media (max-width: 50rem) {
-
     /* 800px */
     .carousel-custom .slide {
         flex-direction: column;
@@ -390,3 +384,64 @@ body {
         /* 220px */
     }
 }
+
+/* .main-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #bba793;
+    color: #452f25;
+    padding: 1.2rem 2.5rem;
+    box-sizing: border-box;
+}
+
+.main-footer h4 {
+    font-size: 1.2rem;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #4a3e2f;
+    text-decoration: none;
+    margin-right: 1rem;
+    line-height: 1.1rem;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #f2eede;
+}
+.footer-links {
+    align-items: flex-end;
+}
+
+.footer-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.footer-icons .icons-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-icons .icons-container img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.footer {
+    width: 100%;
+    height: 4rem;
+    /* display: flex;
+    justify-content: center; */
+    text-align: center;
+    background-color: #675642;
+    color: #FFFFF7;
+    font-size: 1rem;
+    line-height: 4rem;
+} */
