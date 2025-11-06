@@ -18,7 +18,7 @@ h1 {
     font-size: 10rem;
     display: block;
     padding-top: 5rem;
-    background-color: #FFFFF7;
+    /* background-color: #FFFFF7; */
     color: #675642;
 }
 
@@ -145,7 +145,7 @@ h2 {
 .content-container {
     width: 100%;
     height: 23rem;
-    background-color: #FFFFF7;
+    /* background-color: #FFFFF7; */
     /* display: flex;
     justify-content: center; */
 }
@@ -419,4 +419,56 @@ h2 {
     justify-content: space-between;
     align-items: center;
     width: 208px;
+}
+
+.main-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    width: 100%;
+    background-color: #bba793;
+    color: #452f25;
+    padding: 1.2rem 2.5rem;
+    box-sizing: border-box;
+}
+
+.main-footer h4 {
+    font-size: 1.2rem;
+}
+
+.footer-links a {
+    color: #4a3e2f;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.footer-links a:hover {
+    color: #f2eede;
+}
+
+.footer-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    text-align: right;
+}
+
+/* 新增：調整 icon 容器的樣式 */
+.footer-icons .icons-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.footer {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #675642;
+    color: #FFFFF7;
+    font-size: 1rem;
 }
