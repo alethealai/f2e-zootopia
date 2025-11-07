@@ -3,7 +3,6 @@ html {
     background-color: #FFFFF7;
     font-size: 16px;
     scroll-behavior: smooth;
-    /* overflow-x: hidden; */
 }
 
 *,
@@ -103,7 +102,6 @@ h2 {
     transform: scale(1.1);
 }
 
-/* Dropdown styles */
 .nav-item {
     position: relative;
 }
@@ -152,8 +150,9 @@ h2 {
     /* display: flex;
     justify-content: center; */
 }
+
 /* 走路走路 */
-.step{
+.step {
     display: flex;
     /* justify-content: center; */
     align-items: flex-end;
@@ -161,76 +160,87 @@ h2 {
     flex-direction: column;
     gap: 2rem;
 }
+
 .step1 {
     width: 52vw;
 }
+
 .step2 {
-   width: 48vw;
+    width: 48vw;
 }
+
 .step3 {
-   width: 51vw; 
+    width: 51vw;
 }
-.step1 img{  
-   display: flex;
-   width: 2.5rem;
-   transform: rotate(-160deg);
-   display: block;
-   opacity: 0.6;
+
+.step1 img {
+    display: flex;
+    width: 2.5rem;
+    transform: rotate(-160deg);
+    display: block;
+    opacity: 0.6;
 }
-.step2 img{
-  display: flex;
-   width: 2.5rem;
-   transform: rotate(160deg);
-   display: block;
-   opacity: 0.73;
+
+.step2 img {
+    display: flex;
+    width: 2.5rem;
+    transform: rotate(160deg);
+    display: block;
+    opacity: 0.73;
 }
-.step3 img{
-   display: flex;
-   width: 2.5rem;
-   transform: rotate(-160deg);
-   display: block;
-   opacity: 0.9;
+
+.step3 img {
+    display: flex;
+    width: 2.5rem;
+    transform: rotate(-160deg);
+    display: block;
+    opacity: 0.9;
 }
 
 /* 走路2.0 */
 .stepstep {
     display: flex;
-    /* justify-content: center; */
     align-items: flex-end;
     padding-bottom: 5rem;
     flex-direction: column;
     gap: 0.9rem;
     background-color: #DED9D1;
 }
+
 .stepstep .step1 {
     width: 52vw;
 }
+
 .stepstep .step2 {
-   width: 48vw;
+    width: 48vw;
 }
+
 .stepstep .step3 {
-   width: 51vw; 
+    width: 51vw;
 }
-.stepstep .step1 img{  
-   display: flex;
-   width: 2.5rem;
-   transform: rotate(-160deg);
-   display: block;
-   opacity: 0.4;
+
+.stepstep .step1 img {
+    display: flex;
+    width: 2.5rem;
+    transform: rotate(-160deg);
+    display: block;
+    opacity: 0.4;
 }
-.stepstep .step2 img{
-  display: flex;
-   width: 2.3rem;
-   transform: rotate(160deg);
-   display: block;
-   opacity: 0.3;
+
+.stepstep .step2 img {
+    display: flex;
+    width: 2.3rem;
+    transform: rotate(160deg);
+    display: block;
+    opacity: 0.3;
 }
-.stepstep .step3 img{
-   display: flex;
-   width: 2.1rem;
-   transform: rotate(-160deg);
-   display: block;
-   opacity: 0.15;
+
+.stepstep .step3 img {
+    display: flex;
+    width: 2.1rem;
+    transform: rotate(-160deg);
+    display: block;
+    opacity: 0.15;
 }
 
 .content-container p {
@@ -238,7 +248,7 @@ h2 {
     padding-top: 1.5rem;
     font-size: 1.25rem;
     line-height: 2.5rem;
-    color:#675642;
+    color: #675642;
 }
 
 .subtitle {
@@ -249,7 +259,7 @@ h2 {
     padding-bottom: 4rem;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
 .subtitle-container {
@@ -257,7 +267,7 @@ h2 {
     text-align: center;
     display: flex;
     flex-direction: column;
-    
+
 }
 
 .subtitle-container p {
@@ -273,7 +283,7 @@ h2 {
     margin: 1.5rem 0;
 }
 
-/* funfact入口 */
+/* funfact */
 .funfact-intro {
     background-color: #FFFFF7;
     width: 85vw;
@@ -289,7 +299,6 @@ h2 {
     flex: 1;
     position: relative;
     min-width: 0;
-    /* 允許flex item縮小 */
     max-width: 28rem;
     border-radius: 2rem;
     overflow: hidden;
@@ -308,9 +317,7 @@ h2 {
     box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
 }
 
-/* 共用的hover效果基礎樣式 - 使用 data-text 屬性  */
 .funfact-img::before {
-    /* show the per-image text via data-text */
     content: attr(data-text);
     position: absolute;
     top: 0;
@@ -329,14 +336,13 @@ h2 {
     opacity: 0;
     transition: opacity 0.22s ease, transform 0.22s ease;
     pointer-events: none;
-    /* allow clicks to pass through overlay */
 }
 
 .funfact-img:hover::before {
     opacity: 1;
 }
 
-/* 圓形按鈕樣式（仍在右下） */
+/* 圓形按鈕 */
 .funfact-img:hover::after {
     content: "→";
     position: absolute;
@@ -357,7 +363,6 @@ h2 {
     transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     pointer-events: auto;
-    /* make the arrow clickable */
 }
 
 .funfact-img:hover::after:hover {
@@ -382,7 +387,6 @@ h2 {
     opacity: 0.85;
 }
 
-/* Responsive styles */
 @media (max-width: 800px) {
     .funfact-intro {
         flex-direction: column;
@@ -403,7 +407,6 @@ h2 {
 
 
 
-/* Responsive: on narrow screens stack the items vertically */
 @media (max-width: 800px) {
     .funfact-intro {
         flex-wrap: wrap;
@@ -530,6 +533,7 @@ h2 {
 .footer-links a:hover {
     color: #f2eede;
 }
+
 .footer-links {
     align-items: flex-end;
 }
@@ -565,18 +569,13 @@ h2 {
 
 #backToTop {
     position: fixed;
-    /* 永遠固定在畫面 */
     bottom: 2rem;
-    /* 離底部距離 */
     right: 2rem;
-    /* 離右邊距離 */
     width: 3.2rem;
     height: 3.2rem;
     border-radius: 50%;
-    /* 圓形按鈕 */
     background-color: #f2eede;
     color: #FFFFF7;
-    /* 文字顏色 */
     border: none;
     outline: none;
     cursor: pointer;
@@ -589,13 +588,11 @@ h2 {
     z-index: 9999;
 }
 
-/* 滑鼠懸停時放大、變亮 */
 #backToTop:hover {
     transform: scale(1.1);
     background-color: #FFFFF7;
 }
 
-/* 箭頭符號 */
 #backToTop::before {
     content: "↑";
     color: #675642;
