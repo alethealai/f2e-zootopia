@@ -422,9 +422,15 @@ h2 {
 }
 
 /* nancy圖片牆 */
-.imagewall {
-    width: 100%;
+.img-background {
     background-color: #DED9D1;
+    display: flex;
+    justify-content: center;
+}
+
+.imagewall {
+    width: 80%;
+    /* background-color: #DED9D1; */
     display: flex;
     justify-content: center;
     align-items: center;
