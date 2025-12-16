@@ -18,6 +18,9 @@ body {
     padding: 0;
 }
 
+.dots {
+    transform: scale(1.2);
+}
 .quiz-area {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -133,8 +136,15 @@ h2 {
 }
 
 /* 比較 */
+ 
+.compari {
+    width: 100%;
+    margin: 0; 
+    padding: 0;
+}
 .comparison {
     display: flex;
+    width: 70%;
     justify-content: center;
     max-width: 62rem;
     margin: 0 auto;

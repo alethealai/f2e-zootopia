@@ -1,55 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
-    <link rel="stylesheet" href="style.css">
+    <title>Organs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="funfact.css">
     <link rel="icon" type="image/png" href="img/favicon.png">
-    <title>Alethea and Nancy's Zootopia</title>
-
 </head>
 
 <body>
-    <div>
-        <header class="header-container">
-            <div class="row-container">
-                <img src="img\icon.png" alt="icon" class="logo">
-                <p class="logoword">Zootopia</p>
-            </div>
-            <div>
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Fun facts</a>
-                        <div class="dropdown-menu">
-                            <a href="funfact1.html">Organs</a>
-                            <a href="funfactSleeping.html">Sleeping</a>
-                            <a href="funfact3.html">Fun fact 3</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="surpport.html" class="nav-link">Support</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="abousus.html" class="nav-link">About us</a>
-                    </li>
-                </ul>
-            </div>
-        </header>
-
-        <div class="wait-for-final-exam">
-            <h1>Unveil on Dec 26</h1>
+    <header class="header-container">
+        <div class="row-container">
+            <a href="index.html">
+                <img src="img\icon.png" alt="Logo回首頁" class="logo">
+            </a>
+            <p class="logoword">Zootopia</p>
         </div>
+        <div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Fun facts</a>
+                    <div class="dropdown-menu">
+                        <a href="funfact1.html">Organs</a>
+                        <a href="funfactSleeping.html">Sleeping</a>
+                        <a href="funfact3.html">Fun fact 3</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="surpport.html" class="nav-link">Support</a>
+                </li>
+                <li class="nav-item">
+                    <a href="abousus.html" class="nav-link">About us</a>
+                </li>
+            </ul>
+        </div>
+    </header>
 
-        <div class="main-footer">
+    <!-- Carousel row: full-width background -->
+
+    <div class="carousel-row">
+        <section class="carousel-custom" aria-label="Fun facts carousel">
+            <div class="controls">
+                <button class="prev" aria-label="Previous slide"></button>
+                <button class="next" aria-label="Next slide"></button>
+            </div>
+            <h2>Animal fun fact about ORGANS</h2>
+            <div class="slides-wrapper">
+                <div class="slides">
+                    <article class="slide" aria-hidden="false">
+                        <img src="img/bluewhale.png" alt="Fun fact image 1">
+                        <div class="slide-text">
+                            <h3>The Tongue Titans</h3>
+                            <p>As the largest animals on Earth, blue whales are truly gigantic.<br>
+                                Just a blue whale’s tongue can weigh more than an entire elephant — that’s over 7,000 kilograms!</p>
+                        </div>
+                    </article>
+
+
+                    <article class="slide" aria-hidden="true">
+                        <img src="img/seal.png" alt="Fun fact image 3">
+                        <div class="slide-text">
+                            <h3>The Krill Filter Specialists</h3>
+                            <p>Crabeater Seals are the most numerous large animal on the planet, and they primarily eat tiny krill (not crabs!).<br>
+                                They have highly specialized cheek teeth that interlock like a fine sieve. When the seal gulps a mouthful of krill and water, the teeth lock together to strain the water out, trapping the krill inside for them to swallow.<br>
+                                This unique dental structure makes them the Antarctic's ultimate filter feeders.</p>
+                        </div>
+                    </article>
+
+                    <article class="slide" aria-hidden="true">
+                        <img src="img/penguin.png" alt="Fun fact image 3">
+                        <div class="slide-text">
+                            <h3>The Pebble Proposers</h3>
+                            <p>Male gentoo and Adélie penguins “propose” to females by offering them a pebble.
+                                These pebbles are precious because penguins use them to build their nests, and they can be hard to find along the icy Antarctic shorelines.<br>
+                                If the female accepts the pebble, the pair bonds and mates for life.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="dots" role="tablist" aria-label="Slide dots">
+                <span class="dot active" data-index="0" role="tab" aria-selected="true"></span>
+                <span class="dot" data-index="1" role="tab" aria-selected="false"></span>
+                <span class="dot" data-index="2" role="tab" aria-selected="false"></span>
+                <span class="dot" data-index="3" role="tab" aria-selected="false"></span>
+            </div>
+        </section>
+    </div>
+
+    <!-- 比較 -->
+    <br>
+    <br>
+
+    <h2>Animal Organ Count Showdown</h2>
+    <section class="comparison">
+        <div class="left-panel">
+            <div class="item-small">
+                <img src="img/octopus.png" alt="小照片 1 說明">
+                <p class="caption">octopus</p>
+            </div>
+            <div class="item-small">
+                <img src="img/cow.png" alt="小照片 2 說明">
+                <p class="caption">cow</p>
+            </div>
+            <div class="item-small">
+                <img src="img/bee.png" alt="小照片 3 說明">
+                <p class="caption">bee</p>
+            </div>
+            <div class="item-small">
+                <img src="img/snail.png" alt="小照片 4 說明">
+                <p class="caption">snail</p>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="item-long">
+                <img src="img/heart.png" alt="長條照片 1 說明">
+                <p class="caption">&nbsp;&nbsp;&nbsp;&nbsp;3 hearts</p>
+            </div>
+            <div class="item-long">
+                <img src="img/stomach.png" alt="長條照片 2 說明">
+                <p class="caption">&nbsp;&nbsp;&nbsp;&nbsp;4 stomaches</p>
+            </div>
+            <div class="item-long">
+                <img src="img/eyes.png" alt="長條照片 3 說明">
+                <p class="caption">&nbsp;&nbsp;&nbsp;&nbsp;5 eyes</p>
+            </div>
+            <div class="item-long">
+                <img src="img/teeth1.png" alt="長條照片 4 說明">
+                <p class="caption">&nbsp;&nbsp;&nbsp;&nbsp;14,000 teeth</p>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <section class="quiz-area">
+        <br>
+        <h2>Which animal is the lightest?</h2>
+
+        <div class="quize-popover">
+            <div class="image-container">
+                <img src="img/bluewhale.png" alt="bluewhale" class="opction-img" data-bs-toggle="popover" data-bs-content="(4+5)*3=27"
+                    data-bs-trigger="hover" data-bs-title="correct" data-bs-placement="bottom"
+                    data-bs-custom-class="popover-correct">
+            </div>
+            <div class="image-container">
+                <img src="img\seal.png" alt="otter" class="opction-img" data-bs-toggle="popover" data-bs-content="try again"
+                    data-bs-trigger="hover" data-bs-title="error" data-bs-placement="bottom"
+                    data-bs-custom-class="popover-incorrect">
+            </div>
+            <div class="image-container">
+                <img src="img\penguin.png" alt="penguin" class="opction-img" data-bs-toggle="popover" data-bs-content="try again"
+                    data-bs-trigger="hover" data-bs-title="error" data-bs-placement="bottom"
+                    data-bs-custom-class="popover-incorrect">
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="main-footer">
+        <div class="footer-icons">
+            <h4>Contact Us</h4>
+            <div class="icons-container">
+                <a href="surpport.html" aria-label="Facebook">
+                    <span><img src="img/communication.png" alt=""></span>
+                </a>
+                <a href="surpport.html" aria-label="IG">
+                    <span><img src="img/instagram .png" alt=""></span>
+                </a>
+            </div>
+        </div>
         <div class="footer-links">
             <h4>Source</h4>
             <p>
@@ -64,23 +195,94 @@
             </p>
         </div>
 
-        <div class="footer-icons">
-        <h4>Contact Us</h4>
-        <div class="icons-container">
-            <a href="surpport.html" aria-label="Facebook">
-                <span><img src="img/communication.png" alt=""></span>
-            </a>
-            <a href="surpport.html" aria-label="IG">
-                <span><img src="img/instagram .png" alt=""></span>
-            </a>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Alethea and Nancy's Zootopia.<br> All rights reserved.</p>
         </div>
-    </div>
-    </div>
-        <footer class="footer">
-            <div class="container">
-                <p>© 2025 Alethea and Nancy's Zootopia. All rights reserved.</p>
-            </div>
-        </footer>
+    </footer>
+
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 初始化所有的 popovers 並強制從下方出現，使用 body 做為容器以避免被父元素遮罩
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl, {
+                placement: 'bottom',
+                container: 'body'
+            })
+        })
+    </script>
+
+    <script>
+            // Simple carousel behaviour: next/prev, dots, auto-advance
+            (function () {
+                var root = document.querySelector('.carousel-custom');
+                if (!root) return;
+
+                var slidesEl = root.querySelector('.slides');
+                var slides = Array.prototype.slice.call(root.querySelectorAll('.slide'));
+                var prevBtn = root.querySelector('.prev');
+                var nextBtn = root.querySelector('.next');
+                var dots = Array.prototype.slice.call(root.querySelectorAll('.dot'));
+                var current = 0;
+                var interval = 5000; // 5s
+                var timer = null;
+
+                function goTo(i) {
+                    current = (i + slides.length) % slides.length;
+                    slidesEl.style.transform = 'translateX(-' + (current * 100) + '%)';
+                    slides.forEach(function (s, idx) { s.setAttribute('aria-hidden', idx !== current); });
+                    dots.forEach(function (d, idx) { d.classList.toggle('active', idx === current); d.setAttribute('aria-selected', idx === current); });
+                }
+
+                function next() { goTo(current + 1); }
+                function prev() { goTo(current - 1); }
+
+                if (nextBtn) nextBtn.addEventListener('click', function (e) { e.preventDefault(); next(); resetTimer(); });
+                if (prevBtn) prevBtn.addEventListener('click', function (e) { e.preventDefault(); prev(); resetTimer(); });
+
+                dots.forEach(function (dot) { dot.addEventListener('click', function (e) { var i = parseInt(this.dataset.index, 10); goTo(i); resetTimer(); }); });
+
+                function resetTimer() {
+                    if (timer) clearInterval(timer);
+                    timer = setInterval(next, interval);
+                }
+
+                // keyboard support
+                root.addEventListener('keydown', function (e) {
+                    if (e.key === 'ArrowLeft') { prev(); resetTimer(); }
+                    if (e.key === 'ArrowRight') { next(); resetTimer(); }
+                });
+
+                // initialize
+                goTo(0);
+                resetTimer();
+
+                // Make the carousel focusable for keyboard controls
+                root.setAttribute('tabindex', '0');
+            })();
+    </script>
+    <!-- 回到頂部按鈕 -->
+    <button id="backToTop" title="回到最上面"></button>
+
+    <!-- 回頂部功能 JS -->
+    <script>
+        const backToTopBtn = document.getElementById('backToTop');
+
+        // 點擊按鈕時平滑回到最上面
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
 </body>
 
 </html>
