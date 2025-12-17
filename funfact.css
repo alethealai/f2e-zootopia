@@ -83,11 +83,33 @@ h2 {
     max-width: 36rem;
     width: 90%;
     height: auto;
-    margin: 0 auto 1.25rem;
+    margin: 0 auto 1.2rem;
 }
-
-
-
+/* 選項縮排 */
+.quize-popover {
+    display: grid;
+    width: 70%;
+    margin: 0 auto;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+   }
+   @media (max-width: 1023px) {
+    quize-popover {
+        grid-template-columns: repeat(3, 1fr);
+        width: 80%;
+    }
+}
+   @media (max-width: 767px) {
+       .quize-popover {
+           grid-template-columns: repeat(1, 1fr);
+           width: 90%;
+       }
+   }
+.image-container {
+    display: flex; 
+    align-items: center;
+    flex-direction: column;
+}
 .image-container:hover {
     transform: scale(1.1);
 }
