@@ -387,40 +387,6 @@ h2 {
     opacity: 0.85;
 }
 
-@media (max-width: 800px) {
-    .funfact-intro {
-        flex-direction: column;
-        width: 90vw;
-        align-items: center;
-    }
-
-    .funfact-img {
-        width: 100%;
-        max-width: 28rem;
-    }
-
-    .funfact-img:not(:hover) {
-        transform: none;
-        opacity: 1;
-    }
-}
-
-
-
-@media (max-width: 800px) {
-    .funfact-intro {
-        flex-wrap: wrap;
-        width: 90vw;
-        gap: 2rem;
-        justify-content: center;
-    }
-
-    .funfact-img {
-        flex: 1 1 100%;
-        min-width: 0;
-    }
-}
-
 /* nancy圖片牆 */
 .img-background {
     background-color: #DED9D1;
@@ -437,16 +403,17 @@ h2 {
     padding: 3.5rem 0;
 
 }
- .two-column-container {
+
+.two-column-container {
     display: flex;
     gap: 2.2rem;
     max-width: 65rem;
     margin: 0 auto;
-} 
+}
 
 /* 長方形卡片 */
 .grid-item {
-    display: flex; 
+    display: flex;
     flex-direction: column;
     border: 1px solid #ddd;
     border-radius: 1rem;
@@ -460,11 +427,13 @@ h2 {
 .grid-item img {
     /* flex: 0 0 40%; */
     overflow: hidden;
-    height: 12rem;  
-    width: 80%; 
+    height: 12rem;
+    width: 80%;
     display: block;
-     object-fit: contain;  /*東西不會被切 */
-    margin-left: auto; margin-right: auto;
+    object-fit: contain;
+    /*東西不會被切 */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .grid-item-text {
@@ -476,27 +445,7 @@ h2 {
 }
 
 
-/* RWDDDDD! */
 
-.image-grid {
-    display: grid;
-    gap: 1.3rem;
-    padding: 1.3rem;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-
-@media (max-width: 1023px) {
-    .image-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 767px) {
-    .image-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
 
 .grid-item h3 {
     margin-top: 0;
@@ -624,4 +573,193 @@ h2 {
     content: "↑";
     color: #675642;
     font-weight: bold;
+}
+
+/* burger icon */
+#burger-icon {
+    display: none;
+    width: 3rem;
+    height: 2rem;
+    position: relative;
+    margin: 5rem;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+
+
+#burger-icon span {
+    display: block;
+    position: absolute;
+    height: 0.4rem;
+    width: 100%;
+    background: #FFFFF7;
+    border-radius: 0.2rem;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+#burger-icon span:nth-child(1) {
+    top: 0px;
+}
+
+#burger-icon span:nth-child(2),
+#burger-icon span:nth-child(3) {
+    top: 18px;
+}
+
+#burger-icon span:nth-child(4) {
+    top: 36px;
+}
+
+#burger-icon.open span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
+
+#burger-icon.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#burger-icon.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+#burger-icon.open span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
+
+/* overlay */
+.menu-overlay {
+    display: none;
+}
+
+.overlay-nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.overlay-nav a {
+    color: #FFFFF7;
+    font-size: 1.8rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.overlay-nav a:hover {
+    color: #faebc9;
+    transform: scale(1.1);
+}
+
+
+/* RWDDDDD! */
+
+.image-grid {
+    display: grid;
+    gap: 1.3rem;
+    padding: 1.3rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* desktop */
+@media (max-width: 1023px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* tablet */
+@media (max-width: 767px) {
+    .image-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .funfact-intro {
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 90vw;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .funfact-img {
+        flex: 1 1 100%;
+        min-width: 0;
+        width: 100%;
+        max-width: 28rem;
+    }
+
+    .funfact-img:not(:hover) {
+        transform: none;
+        opacity: 1;
+    }
+
+    #burger-icon {
+        display: none;
+    }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+    #burger-icon {
+        display: block;
+        margin: 0 1rem;
+    }
+
+    .nav-list {
+        display: none;
+        position: static;
+    }
+
+    .menu-overlay.open {
+        display: block;
+    }
+
+    .menu-overlay {
+        position: fixed;
+        inset: 0;
+        /* top/right/bottom/left = 0 */
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .menu-overlay.open {
+        opacity: 1;
+        visibility: visible;
+    }
 }

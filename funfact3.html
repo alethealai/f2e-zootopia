@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="funfact.css">
     <link rel="icon" type="image/png" href="img/favicon.png">
+    <script src="burger.js" defer></script>
 </head>
 
 <body>
@@ -44,6 +45,21 @@
                 </li>
             </ul>
         </div>
+
+        <div id="burger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="menu-overlay">
+            <nav class="overlay-nav">
+                <a href="index.html">Home</a>
+                <a href="#">Fun facts</a>
+                <a href="surpport.html">Support</a>
+                <a href="abousus.html">About us</a>
+            </nav>
+        </div>
     </header>
 
     <!-- Carousel row: full-width background -->
@@ -62,7 +78,8 @@
                         <div class="slide-text">
                             <h3>The Tongue Titans</h3>
                             <p>As the largest animals on Earth, blue whales are truly gigantic.<br>
-                                Just a blue whale’s tongue can weigh more than an entire elephant — that’s over 7,000 kilograms!</p>
+                                Just a blue whale’s tongue can weigh more than an entire elephant — that’s over 7,000
+                                kilograms!</p>
                         </div>
                     </article>
 
@@ -71,8 +88,11 @@
                         <img src="img/seal.png" alt="Fun fact image 3">
                         <div class="slide-text">
                             <h3>The Krill Filter Specialists</h3>
-                            <p>Crabeater Seals are the most numerous large animal on the planet, and they primarily eat tiny krill (not crabs!).<br>
-                                They have highly specialized cheek teeth that interlock like a fine sieve. When the seal gulps a mouthful of krill and water, the teeth lock together to strain the water out, trapping the krill inside for them to swallow.<br>
+                            <p>Crabeater Seals are the most numerous large animal on the planet, and they primarily eat
+                                tiny krill (not crabs!).<br>
+                                They have highly specialized cheek teeth that interlock like a fine sieve. When the seal
+                                gulps a mouthful of krill and water, the teeth lock together to strain the water out,
+                                trapping the krill inside for them to swallow.<br>
                                 This unique dental structure makes them the Antarctic's ultimate filter feeders.</p>
                         </div>
                     </article>
@@ -82,7 +102,8 @@
                         <div class="slide-text">
                             <h3>The Pebble Proposers</h3>
                             <p>Male gentoo and Adélie penguins “propose” to females by offering them a pebble.
-                                These pebbles are precious because penguins use them to build their nests, and they can be hard to find along the icy Antarctic shorelines.<br>
+                                These pebbles are precious because penguins use them to build their nests, and they can
+                                be hard to find along the icy Antarctic shorelines.<br>
                                 If the female accepts the pebble, the pair bonds and mates for life.</p>
                         </div>
                     </article>
@@ -150,18 +171,18 @@
 
         <div class="quize-popover">
             <div class="image-container">
-                <img src="img/bluewhale.png" alt="bluewhale" class="opction-img" data-bs-toggle="popover" data-bs-content="(4+5)*3=27"
-                    data-bs-trigger="hover" data-bs-title="correct" data-bs-placement="bottom"
-                    data-bs-custom-class="popover-correct">
+                <img src="img/bluewhale.png" alt="bluewhale" class="opction-img" data-bs-toggle="popover"
+                    data-bs-content="(4+5)*3=27" data-bs-trigger="hover" data-bs-title="correct"
+                    data-bs-placement="bottom" data-bs-custom-class="popover-correct">
             </div>
             <div class="image-container">
-                <img src="img\seal.png" alt="otter" class="opction-img" data-bs-toggle="popover" data-bs-content="try again"
-                    data-bs-trigger="hover" data-bs-title="error" data-bs-placement="bottom"
+                <img src="img\seal.png" alt="otter" class="opction-img" data-bs-toggle="popover"
+                    data-bs-content="try again" data-bs-trigger="hover" data-bs-title="error" data-bs-placement="bottom"
                     data-bs-custom-class="popover-incorrect">
             </div>
             <div class="image-container">
-                <img src="img\penguin.png" alt="penguin" class="opction-img" data-bs-toggle="popover" data-bs-content="try again"
-                    data-bs-trigger="hover" data-bs-title="error" data-bs-placement="bottom"
+                <img src="img\penguin.png" alt="penguin" class="opction-img" data-bs-toggle="popover"
+                    data-bs-content="try again" data-bs-trigger="hover" data-bs-title="error" data-bs-placement="bottom"
                     data-bs-custom-class="popover-incorrect">
             </div>
         </div>
