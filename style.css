@@ -172,6 +172,7 @@ h2 {
 .step3 {
     width: 51vw;
 }
+
 /* 跑馬燈 */
 .animal-slider {
     width: 100%;
@@ -182,18 +183,19 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .animal-track {
+}
+
+.animal-track {
     display: flex;
     position: relative;
     width: 100%;
     height: 100%;
-  }
-  
-  .animal-track img {
+}
+
+.animal-track img {
     position: absolute;
-    left: -200px; /* 從畫面左外側開始 */
+    left: -200px;
+    /* 從畫面左外側開始 */
     width: 10rem;
     height: 10rem;
     object-fit: cover;
@@ -201,35 +203,45 @@ h2 {
     /*圓弧動畫 */
     animation: rainbow-path 30s linear infinite;
     animation-delay: calc(var(--d) * -3s);
-  }
-  
-  
-  /* 核心：定義彩虹橋的路徑 */
-  @keyframes rainbow-path {
+}
+
+
+/* 核心：定義彩虹橋的路徑 */
+@keyframes rainbow-path {
     0% {
-      transform: translateX(-15vw) translateY(-80px);
-      opacity: 0;
+        transform: translateX(-15vw) translateY(-80px);
+        opacity: 0;
     }
-    10% { opacity: 1;
-        /* transform: translateX(15vw) translateY(0px);*/ } 
+
+    10% {
+        opacity: 1;
+        /* transform: translateX(15vw) translateY(0px);*/
+    }
+
     30% {
-        transform: translateX(20vw) translateY(50px); 
+        transform: translateX(20vw) translateY(50px);
     }
+
     50% {
-      /* 中間點：高度最高 */
-      transform: translateX(55vw) translateY(100px); 
+        /* 中間點：高度最高 */
+        transform: translateX(55vw) translateY(100px);
     }
+
     80% {
-        transform: translateX(95vw) translateY(50px); 
+        transform: translateX(95vw) translateY(50px);
     }
-    90% { opacity: 1; 
-        /*transform: translateX(95vw) translateY(0px) */}
+
+    90% {
+        opacity: 1;
+        /*transform: translateX(95vw) translateY(0px) */
+    }
+
     100% {
-      transform: translateX(120vw) translateY(-80px);
-      opacity: 0;
+        transform: translateX(120vw) translateY(-80px);
+        opacity: 0;
     }
-  
-  }
+
+}
 
 .step1 img {
     display: flex;
@@ -557,16 +569,19 @@ h2 {
     margin-bottom: 0.5rem;
 } */
 .main-footer {
-    display: flex;          
-    flex-direction: column; 
-    align-items: left;    /* 置中 */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    /* 置中 */
     width: 100%;
     background-color: #bba793;
     color: #452f25;
     padding: 1.3rem 3rem;
     box-sizing: border-box;
-    gap: 1.5rem;            /* 讓兩個區塊間有間距 */
-    text-align: left;     /* 手機版文字置中 */
+    gap: 1.5rem;
+    /* 讓兩個區塊間有間距 */
+    text-align: left;
+    /* 手機版文字置中 */
 }
 
 .main-footer h4 {
@@ -578,9 +593,9 @@ h2 {
 /* 電腦 */
 @media (min-width: 768px) {
     .main-footer {
-        flex-direction: row-reverse; 
-        justify-content: space-between; 
-        text-align: left; 
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        text-align: left;
     }
 
     .footer-icons {
@@ -589,9 +604,10 @@ h2 {
 }
 
 .icons-container img {
-    width: 2rem; 
+    width: 2rem;
     height: auto;
 }
+
 .footer-links a {
     color: #4a3e2f;
     text-decoration: none;
@@ -635,14 +651,16 @@ h2 {
     font-size: 1rem;
     line-height: 1.4rem;
 }
+
 .mobile-only-br {
-    display: inline; 
+    display: inline;
 }
 
 /* FOOTER斷行 */
 @media (min-width: 768px) {
     .mobile-only-br {
-        display: none; /* 隱藏標籤 */
+        display: none;
+        /* 隱藏標籤 */
     }
 }
 
@@ -758,12 +776,87 @@ h2 {
 }
 
 /* overlay */
+
+
 .menu-overlay {
-    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+
+    /* 🧊 磨砂玻璃 */
+    background: rgba(20, 25, 40, 0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    /* 高級感加分 */
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+
+    /* 動畫 */
+    clip-path: circle(0% at 90% 50px);
+    visibility: hidden;
+    transition:
+        clip-path 0.6s cubic-bezier(0.77, 0, 0.175, 1),
+        visibility 0.6s;
+}
+
+.menu-overlay.open {
+    visibility: visible;
+    clip-path: circle(150% at 90% 50px);
+}
+
+
+.penguin-svg {
+    position: absolute;
+    left: 8%;
+    bottom: 8%;
+    width: 280px;
+    z-index: 1001;
+}
+
+/* 企鵝線條初始狀態（藏起來） */
+.penguin-svg path {
+    fill: transparent;
+    /* 先不填色（重點） */
+    stroke: #ffffff;
+    stroke-width: 2;
+
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+
+/* 選單打開 → 開始畫企鵝 */
+.menu-overlay.open .penguin-svg path:not(.cls-18),
+.menu-open .penguin-svg path:not(.cls-18) {
+    animation:
+        draw-line 2s ease forwards,
+        fill-in 0.6s ease forwards 1.8s;
+}
+
+/* SVG 裡的背景路徑（class cls-18）是整個白色底，避免被動畫或填色影響 */
+.penguin-svg .cls-18 {
+    fill: transparent !important;
+    pointer-events: none;
+}
+
+@keyframes draw-line {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fill-in {
+    to {
+        fill: #ffffff;
+    }
 }
 
 .overlay-nav {
+    position: relative;
+    z-index: 2;
     height: 100%;
+    width: 100%;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -772,16 +865,55 @@ h2 {
 }
 
 .overlay-nav a {
-    color: #FFFFF7;
     font-size: 1.8rem;
-    text-decoration: none;
     font-weight: bold;
-    transition: all 0.3s ease;
+    text-decoration: none;
+
+    color: transparent;
+    /* 先看不到文字 */
+    -webkit-text-stroke: 1px #ffffff;
+
+    opacity: 1;
 }
 
-.overlay-nav a:hover {
-    color: #faebc9;
-    transform: scale(1.1);
+.menu-overlay.open .overlay-nav a {
+    animation:
+        text-draw 1.2s ease forwards,
+        text-fill 0.5s ease forwards;
+}
+
+.menu-overlay.open .overlay-nav a:nth-child(1) {
+    animation-delay: 0.4s, 1.4s;
+}
+
+.menu-overlay.open .overlay-nav a:nth-child(2) {
+    animation-delay: 0.6s, 1.6s;
+}
+
+.menu-overlay.open .overlay-nav a:nth-child(3) {
+    animation-delay: 0.8s, 1.8s;
+}
+
+.menu-overlay.open .overlay-nav a:nth-child(4) {
+    animation-delay: 1s, 2s;
+}
+
+@keyframes text-draw {
+    from {
+        letter-spacing: 8px;
+        opacity: 0;
+    }
+
+    to {
+        letter-spacing: 2px;
+        opacity: 1;
+    }
+}
+
+@keyframes text-fill {
+    to {
+        color: #ffffff;
+    }
 }
 
 
@@ -854,7 +986,7 @@ h2 {
         position: fixed;
         inset: 0;
         /* top/right/bottom/left = 0 */
-        background: rgba(0, 0, 0, 0.85);
+        /* background: rgba(0, 0, 0, 0.85); */
         z-index: 999;
         opacity: 0;
         visibility: hidden;
