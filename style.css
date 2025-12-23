@@ -167,6 +167,7 @@ h2 {
 
 .step2 {
     width: 48vw;
+
 }
 
 .step3 {
@@ -243,6 +244,19 @@ h2 {
 
 }
 
+/* 撥出動畫 */
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .step1 img {
     display: flex;
     width: 2.5rem;
@@ -279,14 +293,17 @@ h2 {
 
 .stepstep .step1 {
     width: 52vw;
+    animation-delay: 0.1s;
 }
 
 .stepstep .step2 {
     width: 48vw;
+    animation-delay: 0.5s;
 }
 
 .stepstep .step3 {
     width: 51vw;
+    animation-delay: 1s;
 }
 
 .stepstep .step1 img {
@@ -353,7 +370,7 @@ h2 {
     margin: 1.5rem 0;
 }
 
-/* funfact */
+/*-------------- funfact--------------- */
 .funfact-intro {
     background-color: #FFFFF7;
     width: 85vw;
@@ -696,13 +713,19 @@ h2 {
     font-weight: bold;
 }
 
-/* burger icon */
+/* 隱藏回到頂部按鈕當選單/遮罩開啟時 */
+body.menu-open #backToTop {
+    display: none !important;
+}
+
+/* -----------------burger-icon----------------- */
 #burger-icon {
     display: none;
-    width: 3rem;
-    height: 2rem;
+    width: 2.4rem;
+    height: 1.6rem;
     position: relative;
-    margin: 5rem;
+    margin: 0 1rem;
+    align-self: center;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
@@ -720,7 +743,7 @@ h2 {
 #burger-icon span {
     display: block;
     position: absolute;
-    height: 0.4rem;
+    height: 0.22rem;
     width: 100%;
     background: #FFFFF7;
     border-radius: 0.2rem;
@@ -737,20 +760,23 @@ h2 {
 }
 
 #burger-icon span:nth-child(1) {
-    top: 0px;
+    top: 0;
 }
 
 #burger-icon span:nth-child(2),
 #burger-icon span:nth-child(3) {
-    top: 18px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #burger-icon span:nth-child(4) {
-    top: 36px;
+    bottom: 0;
+    top: auto;
 }
 
 #burger-icon.open span:nth-child(1) {
-    top: 18px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 0%;
     left: 50%;
 }
@@ -770,12 +796,13 @@ h2 {
 }
 
 #burger-icon.open span:nth-child(4) {
-    top: 18px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 0%;
     left: 50%;
 }
 
-/* overlay */
+/* ------------------------overlay-------------------------- */
 
 
 .menu-overlay {
@@ -909,8 +936,67 @@ h2 {
     }
 }
 
+/* ------------------fancy Zootopia----------------- */
+.cls-1 {
+    fill: none;
+    stroke: #665541;
+    stroke-width: 2;
+}
 
-/* RWDDDDD! */
+/* Scoped SVG path draw animation.
+   Apply class `fancy-zootopia` to the SVG or its wrapper to enable staggered drawing. */
+.fancy-zootopia path {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: draw-path 2.5s ease forwards;
+    animation-fill-mode: forwards;
+}
+
+/* Staggered delays for the first several paths; add more rules if your SVG has more paths. */
+.fancy-zootopia path:nth-of-type(1) {
+    animation-delay: 0s;
+}
+
+.fancy-zootopia path:nth-of-type(2) {
+    animation-delay: 0.18s;
+}
+
+.fancy-zootopia path:nth-of-type(3) {
+    animation-delay: 0.36s;
+}
+
+.fancy-zootopia path:nth-of-type(4) {
+    animation-delay: 0.54s;
+}
+
+.fancy-zootopia path:nth-of-type(5) {
+    animation-delay: 0.72s;
+}
+
+.fancy-zootopia path:nth-of-type(6) {
+    animation-delay: 0.90s;
+}
+
+.fancy-zootopia path:nth-of-type(7) {
+    animation-delay: 1.08s;
+}
+
+.fancy-zootopia path:nth-of-type(8) {
+    animation-delay: 1.26s;
+}
+
+@keyframes draw-path {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.fancy-zootopia path {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* --------------------RWDDDDD!--------------------- */
 
 .image-grid {
     display: grid;
