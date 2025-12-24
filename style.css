@@ -46,7 +46,7 @@ h2 {
     align-items: center;
     position: fixed; 
     top: 0;
-    z-index: 999; /*  圖層在光之下   */
+    z-index: 999; 
 }
 
 .row-container {
@@ -58,6 +58,75 @@ h2 {
     margin-left: 2rem;
     height: 100%;
     padding: 1rem 0;
+}
+/* LOADING畫面基礎樣式保持不變 */
+#loader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #DED9D1; 
+    z-index: 9999; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease; 
+}
+
+.loader-content {
+    width: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 讓內容從左邊開始對齊 */
+}
+
+.snail-image {
+    width: 10rem; 
+    height: auto;
+    position: relative;
+    z-index: 2;
+    animation: snail-move-with-trail 6s linear infinite;
+}
+
+.progress-bar {
+    width: 0;
+    height: 1rem; 
+    background-color: #C2B280; 
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    
+    /* 長條增長動畫：時間與曲線必須跟蝸牛完全一樣 */
+    animation: trail-grow 6s linear infinite;
+}
+
+.loading-text {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+    font-family: inherit; /* 沿用 index.html 字體 */
+    letter-spacing: 0.2rem;
+    color: #5D4037;
+}
+
+
+@keyframes snail-move-with-trail {
+    from {
+        transform: translateX(0) translateY(1.1rem) scaleX(-1);
+    }
+    to {
+        transform: translateX(15rem) translateY(1.1rem) scaleX(-1);
+    }
+}
+
+@keyframes trail-grow {
+    from {
+        width: 0;
+    }
+    to {
+        width: 15rem;
+    }
 }
 
 .logoword {
@@ -181,7 +250,7 @@ h2 {
     width: 100%;
     height: 500px;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
   
   .soft-light {
@@ -190,23 +259,42 @@ h2 {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-    width: 80rem; 
+    width: 100vw; 
     height: 100%;
     
-    /*背景漸層*/
+    /* 設定預設（大螢幕）的參數 */
+    --top-width: 30rem;    /* 頂部半寬 */
+    --slope-offset: 20rem; /* 決定斜率的位移 */
+
     background: linear-gradient(
       to bottom,
-      var(--light-color) 0%,
+      var(--light-color, rgba(255, 255, 255, 0.3)) 0%,
       rgba(255, 255, 255, 0.1) 60%,
       transparent 100%
     );
-  
-    /*光的範圍 */
-    clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+
+    /* 使用 calc 確保斜邊比例固定 */
+    clip-path: polygon(
+      calc(50% - var(--top-width)) 0%, 
+      calc(50% + var(--top-width)) 0%, 
+      calc(50% + var(--top-width) + var(--slope-offset)) 100%, 
+      calc(50% - var(--top-width) - var(--slope-offset)) 100%
+    );
+
     filter: blur(1.5rem); 
     animation: light-pulse 4s ease-in-out infinite alternate;
-  }
+    pointer-events: none;
+}
   
+  @media (max-width: 768px) {
+    .soft-light {
+        /* 只需要調整頂部寬度，斜率位移保持不變，角度就會看起來一致 */
+        --top-width: 6rem;    /* 手機版頂部變窄 */
+        --slope-offset: 12rem; /* 手機版底部同步縮小，維持好看的斜率 */
+        
+        filter: blur(1rem);    /* 小螢幕模糊半徑也要縮小，否則光會散掉 */
+    }
+}
   @keyframes light-pulse {
     from {
       opacity: 0.6;
@@ -244,7 +332,7 @@ h2 {
 .animal-slider {
     width: 100%;
     height: 16rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
     display: flex;
     justify-content: center;
@@ -266,41 +354,57 @@ h2 {
     object-fit: cover;
     /* border-radius: 15px; */
     /*圓弧動畫 */
-    animation: rainbow-path 30s linear infinite;
-    animation-delay: calc(var(--d) * -3s);
+    animation: rainbow-path 40s linear infinite;
+    animation-delay: calc(var(--d) * -4s);
   }
   
   
   /* 橋的路徑 */
   :root {
     /* 電腦*/
-    --p0-x: -20vw; --p0-y: -10vh;
-    --p1-x: 10vw;  --p1-y: 2vh;
-    --p2-x: 45vw;  --p2-y: 12vh; 
-    --p3-x: 85vw;  --p3-y: 2vh;
-    --p4-x: 120vw; --p4-y: -10vh;
+    --p0-x: 0vw; --p0-y: -10vh;
+    --p1-x: 20vw;  --p1-y: 2vh;
+    --p2-x: 50vw;  --p2-y: 12vh; 
+    --p3-x: 80vw;  --p3-y: 2vh;
+    --p4-x: 100vw; --p4-y: -10vh;
   }
   
   @media (max-width: 768px) {
     :root {
-      --p0-x: -30vw; --p0-y: -5vh;
-      --p1-x: 6vw;  --p1-y: 3.5vh;
-      --p2-x: 43vw;  --p2-y: 9vh;  
-      --p3-x: 91vw;  --p3-y: 3.5vh;
-      --p4-x: 140vw; --p4-y: -5vh;
+        --p0-y: 0; --p1-y: 0; --p2-y: 0; --p3-y: 0; --p4-y: 0;
+        --p0-x: 0vw; --p4-x: 100vw;
     }
+
     .animal-track img {
+        width: 8rem;
+        height: 8rem;
         position: absolute;
-        left: -1rem; 
-        width: 7rem;
+        top: 50%; 
+        transform: translateY(-50%);
+        animation: rainbow-path 15s linear infinite; 
+        animation-delay: calc(var(--d) * -1.5s);
+    }
+}
+@media (max-width: 391px) {
+    :root {
+        --p0-y: 0; --p1-y: 0; --p2-y: 0; --p3-y: 0; --p4-y: 0;
+        --p0-x: 0vw; 
+        --p4-x: 100vw;
+    }
+
+    .animal-track img:nth-child(even) {
+        display: none !important;
+    }
+
+    .animal-track img {
+        width: 7rem; 
         height: 7rem;
-        margin-left: 1rem;
-        object-fit: cover;
-        animation: rainbow-path 30s linear infinite;
-        animation-delay: calc(var(--d) * -3s);
-      }
-  }
-  
+        position: absolute;
+        top: 50%;
+        animation: rainbow-path 30s linear infinite; 
+        animation-delay: calc(var(--d) * -3s); 
+    }
+}
   @keyframes rainbow-path {
     0% {
       transform: translateX(var(--p0-x)) translateY(var(--p0-y));
@@ -456,7 +560,7 @@ h2 {
     min-width: 0;
     max-width: 28rem;
     border-radius: 2rem;
-    overflow: hidden;
+    overflow: hidden; 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transition: all 0.4s ease;
     transform-origin: center center;
@@ -573,7 +677,7 @@ h2 {
     border: 1px solid #ddd;
     border-radius: 1rem;
     padding: 0.6rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     margin-bottom: 1.4rem;
@@ -581,7 +685,7 @@ h2 {
 
 .grid-item img {
     /* flex: 0 0 40%; */
-    overflow: hidden;
+    /* overflow: hidden; */
     height: 12rem;
     width: 80%;
     display: block;
