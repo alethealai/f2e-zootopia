@@ -38,15 +38,16 @@ h2 {
 
 .header-container {
     width: 100%;
+    max-width: 65rem;
     height: 5rem;
     background-color: #675642;
     display: flex;
     justify-content: space-between;
     font-size: 1.5rem;
     align-items: center;
-    position: fixed; 
+    position: fixed;
     top: 0;
-    z-index: 999; 
+    z-index: 999;
 }
 
 .row-container {
@@ -59,18 +60,21 @@ h2 {
     height: 100%;
     padding: 1rem 0;
 }
+
 /* LOADING畫面基礎樣式保持不變 */
 #loader {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: #DED9D1; 
-    z-index: 9999; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #DED9D1;
+    z-index: 9999;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.5s ease; 
+    transition: opacity 0.5s ease;
 }
 
 .loader-content {
@@ -78,11 +82,12 @@ h2 {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* 讓內容從左邊開始對齊 */
+    align-items: flex-start;
+    /* 讓內容從左邊開始對齊 */
 }
 
 .snail-image {
-    width: 10rem; 
+    width: 10rem;
     height: auto;
     position: relative;
     z-index: 2;
@@ -91,12 +96,12 @@ h2 {
 
 .progress-bar {
     width: 0;
-    height: 1rem; 
-    background-color: #C2B280; 
+    height: 1rem;
+    background-color: #C2B280;
     border-radius: 10px;
     position: relative;
     z-index: 1;
-    
+
     /* 長條增長動畫：時間與曲線必須跟蝸牛完全一樣 */
     animation: trail-grow 6s linear infinite;
 }
@@ -105,7 +110,8 @@ h2 {
     width: 100%;
     text-align: center;
     margin-top: 2rem;
-    font-family: inherit; /* 沿用 index.html 字體 */
+    font-family: inherit;
+    /* 沿用 index.html 字體 */
     letter-spacing: 0.2rem;
     color: #5D4037;
 }
@@ -115,6 +121,7 @@ h2 {
     from {
         transform: translateX(0) translateY(1.1rem) scaleX(-1);
     }
+
     to {
         transform: translateX(15rem) translateY(1.1rem) scaleX(-1);
     }
@@ -124,6 +131,7 @@ h2 {
     from {
         width: 0;
     }
+
     to {
         width: 15rem;
     }
@@ -213,7 +221,7 @@ h2 {
     display: block;
 }
 
-.content-container { 
+.content-container {
     width: 100%;
     height: 23rem;
     margin-top: 4.5rem;
@@ -222,12 +230,14 @@ h2 {
     /* display: flex;
     justify-content: center; */
 }
+
 .content-container p {
-    display: block;  
+    display: block;
 }
+
 /* 標題SVG */
 .svg-container {
-    display: flex;        
+    display: flex;
     justify-content: center;
     width: 100%;
     position: relative;
@@ -235,76 +245,81 @@ h2 {
 }
 
 .svg-container svg {
-    display: block;        
-    max-width: 100%;       
-    height: auto;          
-    width: 50rem;       
+    display: block;
+    max-width: 100%;
+    height: auto;
+    width: 50rem;
 }
+
 /* 光 */
 /* 背景舞台 */
 :root {
-    --light-color: rgba(237, 196, 94, 0.77); /* 燈光顏色，帶透明度 */
-  }
-  
-  .container {
+    --light-color: rgba(237, 196, 94, 0.77);
+    /* 燈光顏色，帶透明度 */
+}
+
+.container {
     width: 100%;
     height: 500px;
     position: relative;
-    /* overflow: hidden; */
-  }
-  
-  .soft-light {
+}
+
+.soft-light {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-    width: 100vw; 
+    width: 100vw;
     height: 100%;
-    
-    /* 設定預設（大螢幕）的參數 */
-    --top-width: 30rem;    /* 頂部半寬 */
-    --slope-offset: 20rem; /* 決定斜率的位移 */
 
-    background: linear-gradient(
-      to bottom,
-      var(--light-color, rgba(255, 255, 255, 0.3)) 0%,
-      rgba(255, 255, 255, 0.1) 60%,
-      transparent 100%
-    );
+    /* 設定預設（大螢幕）的參數 */
+    --top-width: 30rem;
+    /* 頂部半寬 */
+    --slope-offset: 20rem;
+    /* 決定斜率的位移 */
+
+    background: linear-gradient(to bottom,
+            var(--light-color, rgba(255, 255, 255, 0.3)) 0%,
+            rgba(255, 255, 255, 0.1) 60%,
+            transparent 100%);
 
     /* 使用 calc 確保斜邊比例固定 */
-    clip-path: polygon(
-      calc(50% - var(--top-width)) 0%, 
-      calc(50% + var(--top-width)) 0%, 
-      calc(50% + var(--top-width) + var(--slope-offset)) 100%, 
-      calc(50% - var(--top-width) - var(--slope-offset)) 100%
-    );
+    clip-path: polygon(calc(50% - var(--top-width)) 0%,
+            calc(50% + var(--top-width)) 0%,
+            calc(50% + var(--top-width) + var(--slope-offset)) 100%,
+            calc(50% - var(--top-width) - var(--slope-offset)) 100%);
 
-    filter: blur(1.5rem); 
+    filter: blur(1.5rem);
     animation: light-pulse 4s ease-in-out infinite alternate;
     pointer-events: none;
 }
-  
-  @media (max-width: 768px) {
+
+@media (max-width: 768px) {
     .soft-light {
         /* 只需要調整頂部寬度，斜率位移保持不變，角度就會看起來一致 */
-        --top-width: 6rem;    /* 手機版頂部變窄 */
-        --slope-offset: 12rem; /* 手機版底部同步縮小，維持好看的斜率 */
-        
-        filter: blur(1rem);    /* 小螢幕模糊半徑也要縮小，否則光會散掉 */
+        --top-width: 6rem;
+        /* 手機版頂部變窄 */
+        --slope-offset: 12rem;
+        /* 手機版底部同步縮小，維持好看的斜率 */
+
+        filter: blur(1rem);
+        /* 小螢幕模糊半徑也要縮小，否則光會散掉 */
     }
 }
-  @keyframes light-pulse {
+
+@keyframes light-pulse {
     from {
-      opacity: 0.6;
-      transform: translateX(-50%) scaleX(0.9);
+        opacity: 0.6;
+        transform: translateX(-50%) scaleX(0.9);
     }
+
     to {
-      opacity: 0.9;
-      transform: translateX(-50%) scaleX(1);
+        opacity: 0.9;
+        transform: translateX(-50%) scaleX(1);
     }
-  }
+}
+
 /* 走路走路 */
 .step {
     display: flex;
@@ -332,7 +347,6 @@ h2 {
 .animal-slider {
     width: 100%;
     height: 16rem;
-    /* overflow: hidden; */
     position: relative;
     display: flex;
     justify-content: center;
@@ -348,7 +362,7 @@ h2 {
 
 .animal-track img {
     position: absolute;
-    left: -1rem; 
+    left: -1rem;
     width: 10rem;
     height: 10rem;
     object-fit: cover;
@@ -356,39 +370,54 @@ h2 {
     /*圓弧動畫 */
     animation: rainbow-path 40s linear infinite;
     animation-delay: calc(var(--d) * -4s);
-  }
-  
-  
-  /* 橋的路徑 */
-  :root {
+}
+
+
+/* 橋的路徑 */
+:root {
     /* 電腦*/
-    --p0-x: 0vw; --p0-y: -10vh;
-    --p1-x: 20vw;  --p1-y: 2vh;
-    --p2-x: 50vw;  --p2-y: 12vh; 
-    --p3-x: 80vw;  --p3-y: 2vh;
-    --p4-x: 100vw; --p4-y: -10vh;
-  }
-  
-  @media (max-width: 768px) {
+    --p0-x: 0vw;
+    --p0-y: -10vh;
+    --p1-x: 20vw;
+    --p1-y: 2vh;
+    --p2-x: 50vw;
+    --p2-y: 12vh;
+    --p3-x: 80vw;
+    --p3-y: 2vh;
+    --p4-x: 100vw;
+    --p4-y: -10vh;
+}
+
+@media (max-width: 768px) {
     :root {
-        --p0-y: 0; --p1-y: 0; --p2-y: 0; --p3-y: 0; --p4-y: 0;
-        --p0-x: 0vw; --p4-x: 100vw;
+        --p0-y: 0;
+        --p1-y: 0;
+        --p2-y: 0;
+        --p3-y: 0;
+        --p4-y: 0;
+        --p0-x: 0vw;
+        --p4-x: 100vw;
     }
 
     .animal-track img {
         width: 8rem;
         height: 8rem;
         position: absolute;
-        top: 50%; 
+        top: 50%;
         transform: translateY(-50%);
-        animation: rainbow-path 15s linear infinite; 
+        animation: rainbow-path 15s linear infinite;
         animation-delay: calc(var(--d) * -1.5s);
     }
 }
+
 @media (max-width: 391px) {
     :root {
-        --p0-y: 0; --p1-y: 0; --p2-y: 0; --p3-y: 0; --p4-y: 0;
-        --p0-x: 0vw; 
+        --p0-y: 0;
+        --p1-y: 0;
+        --p2-y: 0;
+        --p3-y: 0;
+        --p4-y: 0;
+        --p0-x: 0vw;
         --p4-x: 100vw;
     }
 
@@ -397,37 +426,64 @@ h2 {
     }
 
     .animal-track img {
-        width: 7rem; 
+        width: 7rem;
         height: 7rem;
         position: absolute;
         top: 50%;
-        animation: rainbow-path 30s linear infinite; 
-        animation-delay: calc(var(--d) * -3s); 
+        animation: rainbow-path 30s linear infinite;
+        animation-delay: calc(var(--d) * -3s);
     }
 }
-  @keyframes rainbow-path {
+
+@keyframes rainbow-path {
     0% {
-      transform: translateX(var(--p0-x)) translateY(var(--p0-y));
-      opacity: 0.5;
+        transform: translateX(var(--p0-x)) translateY(var(--p0-y));
+        opacity: 0.5;
     }
+
+    /* SVG Handwriting animation - tablet RWD */
+    /* .svg-container {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .svg-container svg {
+        width: 85vw;
+        max-width: 35rem;
+    }
+
+    .soft-light {
+        width: 60%;
+        filter: blur(1rem);
+    } */
+}
+
+@keyframes rainbow-path {
+    0% {
+        transform: translateX(var(--p0-x)) translateY(var(--p0-y));
+        opacity: 0.5;
+    }
+
     25% {
-      transform: translateX(var(--p1-x)) translateY(var(--p1-y));
-      opacity: 1;
+        transform: translateX(var(--p1-x)) translateY(var(--p1-y));
+        opacity: 1;
     }
 
     50% {
-      transform: translateX(var(--p2-x)) translateY(var(--p2-y));
-      opacity: 1;
+        transform: translateX(var(--p2-x)) translateY(var(--p2-y));
+        opacity: 1;
     }
+
     75% {
-      transform: translateX(var(--p3-x)) translateY(var(--p3-y));
-      opacity: 1;
+        transform: translateX(var(--p3-x)) translateY(var(--p3-y));
+        opacity: 1;
     }
+
     100% {
-      transform: translateX(var(--p4-x)) translateY(var(--p4-y));
-      opacity: 0.5;
+        transform: translateX(var(--p4-x)) translateY(var(--p4-y));
+        opacity: 0.5;
     }
-  }
+}
 
 .step1 img {
     display: flex;
@@ -560,7 +616,7 @@ h2 {
     min-width: 0;
     max-width: 28rem;
     border-radius: 2rem;
-    overflow: hidden; 
+    overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transition: all 0.4s ease;
     transform-origin: center center;
@@ -677,7 +733,6 @@ h2 {
     border: 1px solid #ddd;
     border-radius: 1rem;
     padding: 0.6rem;
-    /* overflow: hidden; */
     background-color: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     margin-bottom: 1.4rem;
@@ -685,7 +740,6 @@ h2 {
 
 .grid-item img {
     /* flex: 0 0 40%; */
-    /* overflow: hidden; */
     height: 12rem;
     width: 80%;
     display: block;
@@ -741,6 +795,7 @@ h2 {
     align-items: center;
     width: 208px;
 }
+
 /* 翻轉的照片 */
 /* 翻轉卡片 */
 .img-background {
@@ -783,7 +838,7 @@ h2 {
 }
 
 /* 點擊翻轉 */
-.flip-checkbox:checked + .home-grid-item .card-inner {
+.flip-checkbox:checked+.home-grid-item .card-inner {
     transform: rotateY(180deg);
 }
 
@@ -793,14 +848,13 @@ h2 {
     position: absolute;
     inset: 0;
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;    
+    -webkit-backface-visibility: hidden;
     border-radius: 1rem;
     background-color: #fff;
     box-shadow: 0 0.25rem 0.7rem rgba(0, 0, 0, 0.05);
 
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
 /* 正面 */
@@ -838,8 +892,9 @@ h2 {
 .card-back h3 {
     color: #e7dad0;
     margin-bottom: 1.6rem;
-    
+
 }
+
 .card-back p {
     color: #fff;
     font-size: 1.05em;
@@ -854,54 +909,24 @@ h2 {
 .home-grid-item:hover {
     box-shadow: 0 0.4rem 1rem rgba(51, 36, 36, 0.1);
 }
-/* .main-footer {
-    display: block;
-    align-items: center;
-    width: 100%;
-    background-color: #bba793;
-    color: #452f25;
-    padding: 1.3rem 3rem;
-    box-sizing: border-box;
-}
 
-.main-footer h4 {
-    font-size: 1.2rem;
-    margin: 0;
-    margin-bottom: 0.5rem;
-} */
 .main-footer {
     display: flex;
     flex-direction: column;
     align-items: left;
-    /* 置中 */
     width: 100%;
     background-color: #bba793;
     color: #452f25;
     padding: 1.3rem 3rem;
     box-sizing: border-box;
     gap: 1.5rem;
-    /* 讓兩個區塊間有間距 */
     text-align: left;
-    /* 手機版文字置中 */
 }
 
 .main-footer h4 {
     font-size: 1.2rem;
     margin: 0;
     margin-bottom: 0.5rem;
-}
-
-/* 電腦 */
-@media (min-width: 768px) {
-    .main-footer {
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        text-align: left;
-    }
-
-    .footer-icons {
-        text-align: right;
-    }
 }
 
 .icons-container img {
@@ -953,17 +978,6 @@ h2 {
     line-height: 1.4rem;
 }
 
-.mobile-only-br {
-    display: inline;
-}
-
-/* FOOTER斷行 */
-@media (min-width: 768px) {
-    .mobile-only-br {
-        display: none;
-        /* 隱藏標籤 */
-    }
-}
 
 #backToTop {
     position: fixed;
@@ -1221,52 +1235,18 @@ body.menu-open #backToTop {
 }
 
 /* ------------------fancy Zootopia----------------- */
-.cls-1 {
-    fill: none;
-    stroke: #665541;
-    stroke-width: 2;
+.fancy-zootopia {
+    width: 100%;
+    height: auto;
 }
 
-/* Scoped SVG path draw animation.
-   Apply class `fancy-zootopia` to the SVG or its wrapper to enable staggered drawing. */
 .fancy-zootopia path {
-    stroke-dasharray: 2000;
-    stroke-dashoffset: 2000;
-    animation: draw-path 2.5s ease forwards;
-    animation-fill-mode: forwards;
-}
-
-/* Staggered delays for the first several paths; add more rules if your SVG has more paths. */
-.fancy-zootopia path:nth-of-type(1) {
-    animation-delay: 0s;
-}
-
-.fancy-zootopia path:nth-of-type(2) {
-    animation-delay: 0.18s;
-}
-
-.fancy-zootopia path:nth-of-type(3) {
-    animation-delay: 0.36s;
-}
-
-.fancy-zootopia path:nth-of-type(4) {
-    animation-delay: 0.54s;
-}
-
-.fancy-zootopia path:nth-of-type(5) {
-    animation-delay: 0.72s;
-}
-
-.fancy-zootopia path:nth-of-type(6) {
-    animation-delay: 0.90s;
-}
-
-.fancy-zootopia path:nth-of-type(7) {
-    animation-delay: 1.08s;
-}
-
-.fancy-zootopia path:nth-of-type(8) {
-    animation-delay: 1.26s;
+    fill: rgba(102, 86, 65, 0);
+    stroke: #665541;
+    stroke-width: 1.5;
+    stroke-dasharray: 2500;
+    stroke-dashoffset: 2500;
+    transition: fill 0.5s ease;
 }
 
 @keyframes draw-path {
@@ -1275,12 +1255,39 @@ body.menu-open #backToTop {
     }
 }
 
+@keyframes fill-color {
+    to {
+        fill: rgba(102, 86, 65, 0.93);
+    }
+}
+
 .fancy-zootopia path {
-    opacity: 1 !important;
-    visibility: visible !important;
+    animation:
+        draw-path 3s ease forwards,
+        fill-color 1s ease forwards 2.5s;
+}
+
+/* 控制每一筆劃的延遲 (Stagger) */
+.fancy-zootopia path:nth-of-type(1) {
+    animation-delay: 0s, 2.5s;
+}
+
+.fancy-zootopia path:nth-of-type(2) {
+    animation-delay: 0.5s, 3s;
+}
+
+.fancy-zootopia path:nth-of-type(3) {
+    animation-delay: 1s, 3.5s;
+}
+
+.fancy-zootopia path:nth-of-type(4) {
+    animation-delay: 1.5s, 4s;
 }
 
 /* --------------------RWDDDDD!--------------------- */
+.mobile-only-br {
+    display: inline;
+}
 
 .image-grid {
     display: grid;
@@ -1299,6 +1306,41 @@ body.menu-open #backToTop {
 
 /* tablet */
 @media (max-width: 767px) {
+
+    .main-footer {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-icons {
+        text-align: right;
+    }
+
+    .mobile-only-br {
+        display: none;
+        /* 隱藏標籤 */
+    }
+
+    .header-container {
+        padding: 0 0.75rem;
+    }
+
+    .row-container {
+        width: auto;
+        margin-left: 0;
+        gap: 0.5rem;
+    }
+
+    .logoword {
+        font-size: 1.5rem;
+    }
+
+    .logo {
+        height: 2rem;
+        margin-left: 0;
+    }
+
     .image-grid {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -1327,10 +1369,26 @@ body.menu-open #backToTop {
     #burger-icon {
         display: none;
     }
+
+    /* SVG Handwriting animation - mobile RWD */
+    .svg-container {
+        width: 100%;
+        padding: 0 0.75rem;
+    }
+
+    .svg-container svg {
+        width: 90vw;
+        max-width: 28rem;
+    }
+
+    .soft-light {
+        width: 50rem;
+        filter: blur(0.9rem);
+    }
 }
 
 /* mobile */
-@media (max-width: 767px) {
+@media (max-width: 480px) {
     #burger-icon {
         display: block;
         margin: 0 1rem;
@@ -1359,5 +1417,36 @@ body.menu-open #backToTop {
     .menu-overlay.open {
         opacity: 1;
         visibility: visible;
+    }
+
+    .svg-container svg {
+        width: 95vw;
+        max-width: 24rem;
+    }
+
+    .soft-light {
+        width: 40rem;
+        filter: blur(0.8rem);
+    }
+
+    .header-container {
+        width: 100%;
+        padding: 0 0.5rem;
+        height: 4rem;
+    }
+
+    .row-container {
+        width: auto;
+        padding: 0.75rem 0;
+        gap: 0.3rem;
+    }
+
+    .logoword {
+        font-size: 1.2rem;
+    }
+
+    .logo {
+        height: 1.8rem;
+        margin-left: 0;
     }
 }

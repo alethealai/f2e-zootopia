@@ -21,6 +21,7 @@ body {
 .dots {
     transform: scale(1.2);
 }
+
 .quiz-area {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -85,6 +86,7 @@ h2 {
     height: auto;
     margin: 0 auto 1.2rem;
 }
+
 /* 選項縮排 */
 .quize-popover {
     display: grid;
@@ -92,24 +94,28 @@ h2 {
     margin: 0 auto;
     gap: 1rem;
     grid-template-columns: repeat(3, 1fr);
-   }
-   @media (max-width: 1023px) {
+}
+
+@media (max-width: 1023px) {
     quize-popover {
         grid-template-columns: repeat(3, 1fr);
         width: 80%;
     }
 }
-   @media (max-width: 767px) {
-       .quize-popover {
-           grid-template-columns: repeat(1, 1fr);
-           width: 90%;
-       }
-   }
+
+@media (max-width: 767px) {
+    .quize-popover {
+        grid-template-columns: repeat(1, 1fr);
+        width: 90%;
+    }
+}
+
 .image-container {
-    display: flex; 
+    display: flex;
     align-items: center;
     flex-direction: column;
 }
+
 .image-container:hover {
     transform: scale(1.1);
 }
@@ -158,12 +164,13 @@ h2 {
 }
 
 /* 比較 */
- 
+
 .compari {
     width: 100%;
-    margin: 0; 
+    margin: 0;
     padding: 0;
 }
+
 .comparison {
     display: flex;
     width: 70%;
@@ -276,7 +283,6 @@ h2 {
 
 .slides-wrapper {
     width: 100%;
-    overflow: hidden;
 }
 
 .carousel-custom .slides {
