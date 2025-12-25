@@ -1121,9 +1121,10 @@ body.menu-open #backToTop {
     height: auto;
     object-fit: contain;
 }
-
     /* 🧊 磨砂玻璃 */
-    background: rgba(20, 25, 40, 0.45);
+    .background{
+
+    background-color:rgba (20, 25, 40, 0.45);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
