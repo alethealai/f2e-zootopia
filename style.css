@@ -16,6 +16,7 @@ html {
     padding: 0;
 }
 
+/* ------------------parallax--------------------- */
 .parallax-wrapper {
     /* overflow: hidden; */
     width: 100vw;
@@ -27,14 +28,70 @@ html {
     perspective: 1px;
 }
 
-h1 {
+.section1,
+.section2 {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.section2 {
+    background: #DED9D1;
+}
+
+.section2 p {
+    font-family: "Josefin Sans", sans-serif;
+    display: block;
+}
+
+.text {
+    top: 30%;
+    left: 50%;
+    position: absolute;
+    /* font-family: 'Franklin Gothic Heavy';
+    font-size: 15vw;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3),
+        5px 5px 70px rgba(255, 255, 255, 0.5); */
+    transform: scale(1, 1.1) translate(-50%, 10%);
+}
+
+.section1::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("cloudddddd.png") top center;
+    background-size: cover;
+    transform: translateZ(-1px) scale(2.2);
+    filter: blur(2px);
+    z-index: -1;
+}
+
+.section1::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("grasssssssss.png") top center;
+    background-size: cover;
+    z-index: 0;
+}
+
+.section1 .text {
+    top: 10%;
+    transform: translateZ(-0.5px) scale(1.5, 1.6) translate(-33%, 10%);
+}
+
+/*--------------------- other---------------------- */
+/* h1 {
     text-align: center;
     font-size: 10rem;
     display: block;
     padding-top: 5rem;
-    /* background-color: #FFFFF7; */
     color: #675642;
-}
+} */
 
 h2 {
     text-align: center;
@@ -50,6 +107,21 @@ h2 {
     height: 100vh;
 }
 
+.skyyyheader-container {
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 5rem;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
 .header-container {
     left: 0;
     width: 100%;
@@ -63,18 +135,6 @@ h2 {
     position: fixed;
     top: 0;
     z-index: 999;
-}
-
-.row-container {
-    /* width: 16rem; */
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    align-items: center;
-    margin-left: 2rem;
-    height: 100%;
-    padding: 1rem 0;
 }
 
 /* LOADING畫面基礎樣式保持不變 */
@@ -218,6 +278,22 @@ h2 {
     text-align: center;
 }
 
+.skyyyydropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    width: 100%;
+    min-width: 120px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    border-radius: 4px;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
 .dropdown-menu a {
     color: #FFFFF7;
     padding: 0.7rem 1rem;
@@ -227,6 +303,11 @@ h2 {
     transition: all 0.3s ease;
     white-space: nowrap;
 }
+
+/* .skyyyydropdown-menu a:hover {
+    background-color: #bc2f2f;
+    color: #faebc9;
+} */
 
 .dropdown-menu a:hover {
     background-color: #5d4c3b;
@@ -239,20 +320,16 @@ h2 {
 
 .content-container {
     width: 100%;
-    height: 23rem;
     margin-top: 4.5rem;
     margin-bottom: 1.5rem;
-    /* background-color: #4c4c3a;  */
-    /* display: flex;
-    justify-content: center; */
 }
 
-.content-container p {
+p {
     display: block;
 }
 
 /* 標題SVG */
-.svg-container {
+/* .svg-container {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -265,7 +342,7 @@ h2 {
     max-width: 100%;
     height: auto;
     width: 50rem;
-}
+} */
 
 /* 光 */
 /* 背景舞台 */
@@ -278,62 +355,6 @@ h2 {
     width: 100%;
     height: 72px;
     position: relative;
-}
-
-.soft-light {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    width: 100vw;
-    height: 100%;
-
-    /* 設定預設（大螢幕）的參數 */
-    --top-width: 30rem;
-    /* 頂部半寬 */
-    --slope-offset: 20rem;
-    /* 決定斜率的位移 */
-
-    background: linear-gradient(to bottom,
-            var(--light-color, rgba(255, 255, 255, 0.3)) 0%,
-            rgba(255, 255, 255, 0.1) 60%,
-            transparent 100%);
-
-    /* 使用 calc 確保斜邊比例固定 */
-    clip-path: polygon(calc(50% - var(--top-width)) 0%,
-            calc(50% + var(--top-width)) 0%,
-            calc(50% + var(--top-width) + var(--slope-offset)) 100%,
-            calc(50% - var(--top-width) - var(--slope-offset)) 100%);
-
-    filter: blur(1.5rem);
-    animation: light-pulse 4s ease-in-out infinite alternate;
-    pointer-events: none;
-}
-
-@media (max-width: 768px) {
-    .soft-light {
-        /* 只需要調整頂部寬度，斜率位移保持不變，角度就會看起來一致 */
-        --top-width: 6rem;
-        /* 手機版頂部變窄 */
-        --slope-offset: 12rem;
-        /* 手機版底部同步縮小，維持好看的斜率 */
-
-        filter: blur(1rem);
-        /* 小螢幕模糊半徑也要縮小，否則光會散掉 */
-    }
-}
-
-@keyframes light-pulse {
-    from {
-        opacity: 0.6;
-        transform: translateX(-50%) scaleX(0.9);
-    }
-
-    to {
-        opacity: 0.9;
-        transform: translateX(-50%) scaleX(1);
-    }
 }
 
 /* 走路走路 */
@@ -456,22 +477,6 @@ h2 {
         transform: translateX(var(--p0-x)) translateY(var(--p0-y));
         opacity: 0.5;
     }
-
-    /* SVG Handwriting animation - tablet RWD */
-    /* .svg-container {
-        width: 100%;
-        padding: 0 1rem;
-    }
-
-    .svg-container svg {
-        width: 85vw;
-        max-width: 35rem;
-    }
-
-    .soft-light {
-        width: 60%;
-        filter: blur(1rem);
-    } */
 }
 
 @keyframes rainbow-path {
@@ -532,7 +537,7 @@ h2 {
     padding-bottom: 5rem;
     flex-direction: column;
     gap: 0.9rem;
-    background-color: #DED9D1;
+    background-color: #FFFFF7;
 }
 
 .stepstep .step1 {
@@ -584,7 +589,7 @@ h2 {
 
 .subtitle {
     width: 100%;
-    background-color: #DED9D1;
+    background-color: #FFFFF7;
     display: flex;
     justify-content: center;
     padding-bottom: 4rem;
@@ -1124,6 +1129,16 @@ body.menu-open #backToTop {
     inset: 0;
     z-index: 1000;
     display: flex;
+    background-color: rgba (20, 25, 40, 0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    clip-path: circle(0% at 90% 50px);
+    visibility: hidden;
+    transition:
+        clip-path 0.6s cubic-bezier(0.77, 0, 0.175, 1),
+        visibility 0.6s;
+
 }
 
 .menu-overlay img {
@@ -1136,59 +1151,25 @@ body.menu-open #backToTop {
     object-fit: contain;
 }
 
-/* 🧊 磨砂玻璃 */
-.background {
-
-    background-color: rgba (20, 25, 40, 0.45);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    /* 高級感加分 */
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
-
-    /* 動畫 */
-    clip-path: circle(0% at 90% 50px);
-    visibility: hidden;
-    transition:
-        clip-path 0.6s cubic-bezier(0.77, 0, 0.175, 1),
-        visibility 0.6s;
-}
-
 .menu-overlay.open {
     visibility: visible;
     clip-path: circle(150% at 90% 50px);
 }
 
 
-/* .penguin-svg {
+.penguin-svg {
     position: absolute;
     left: 8%;
     bottom: 8%;
     width: 280px;
     z-index: 1;
-} */
+}
 
-/* 企鵝線條初始狀態（藏起來） */
-/* .penguin-svg path {
-    fill: transparent;
-    stroke: #ffffff;
-    stroke-width: 2;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-} */
-
-/* 選單打開 → 開始畫企鵝 */
-/* .menu-overlay.open .penguin-svg path {
-    animation:
-        draw-line 2s ease forwards,
-        fill-in 0.6s ease forwards 1.8s;
-} */
-
-/* @keyframes draw-line {
+@keyframes draw-line {
     to {
         stroke-dashoffset: 0;
     }
-} */
+}
 
 @keyframes fill-in {
     to {
@@ -1353,14 +1334,15 @@ body.menu-open #backToTop {
         /* 隱藏標籤 */
     }
 
-    /* .header-container {
-        padding: 0 0.75rem;
-    } */
-
     .row-container {
         width: auto;
-        margin-left: 0;
-        gap: 0.5rem;
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        margin-left: 2rem;
+        gap: 1rem;
+        padding: 1rem 0;
+        align-items: center;
     }
 
     .logoword {
