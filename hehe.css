@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0a2a43;
+    /* 與背景圖色系一致 */
+    min-height: 1500px;
+    /* 確保頁面夠長可以滾動 */
+    overflow-x: hidden;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+/* 層級設定 */
+#bg {
+    z-index: 1;
+}
+
+#moon {
+    z-index: 2;
+}
+
+#mountain {
+    z-index: 3;
+}
+
+#text {
+    position: absolute;
+    color: #fff;
+    font-size: 8vw;
+    z-index: 4;
+    /* 文字在山的前面，道路的後面 */
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+#road {
+    z-index: 5;
+    /* 道路在最前層，負責擋住往下的文字 */
+}
+
+.content {
+    padding: 100px;
+    color: #fff;
+    background: #0a2a43;
+}
