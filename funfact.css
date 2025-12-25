@@ -170,87 +170,121 @@ h2 {
     margin: 0;
     padding: 0;
 }
-
 .comparison {
-    display: flex;
-    width: 70%;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 35% 65%; 
+    width: 95%;
     max-width: 62rem;
     margin: 0 auto;
-    padding: 1.25rem;
-    background-color: #FFFFF7;
+    padding: 2rem 0;
+    row-gap: 3rem; 
 }
-
-.left-panel {
-    flex: 0 0 35%;
-    width: 50%;
-    padding: 0 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.9375rem;
+.comparison2 {
+    display: grid;
+    grid-template-columns: 30% 70%; 
+    width: 95%;
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 2rem 0;
+    row-gap: 3rem; 
 }
-
-.right-panel {
-    flex: 0 0 65%;
-    width: 50%;
-    padding: 0 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.9375rem;
+.fact-group {
+    display: contents;
+    height:20rem;
 }
-
-
+.fact-group-sleeping{
+    display: contents;
+    height:20rem;
+}
 .item-small {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.625rem;
-}
-
-.item-small img {
-    width: 9.5rem;
-    height: 9.5rem;
-    transform: scale(1.41);
-    object-fit: cover;
+    grid-column: 1; /* 強制動物在左邊第一欄 */
 }
 
 .item-long {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0.625rem;
+    grid-column: 2; /* 強制器官在右邊第二欄 */
+    padding-left: 2rem;
 }
-
-.item-long img {
-    width: auto;
-    height: 9.5rem;
-    object-fit: cover;
-}
-
 .item-long-sleep {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0.625rem;
+    grid-column: 2; /* 強制器官在右邊第二欄 */
+    padding-left: -1rem;
 }
 
-.item-long-sleep img {
-    height: 5.5rem;
+/* 圖片樣式 */
+.item-small img, .item-long img {
+    height: 9.5rem;
     width: auto;
-    object-fit: cover;
-}
-
-.small-giraffe {
-    transform: scale(0.9);
+    object-fit: contain;
 }
 
 .caption {
-    margin-top: 0.3125rem;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
+    margin-top: 0.5rem;
     color: #393333;
-    text-align: center;
 }
+.item-long-sleep img{
+    height: 5rem;
+    width: auto;
+    object-fit: contain;
+}
+@media (max-width: 768px) {
+    
+    .item-small img, .item-long img {
+        height: 7rem;
+        width: auto;
+        object-fit: contain;
+    }
+    .item-long-sleep img{
+        height: 4rem;
+        width: auto;
+        object-fit: contain;
 
+    }
+}
+@media (max-width: 480px) {
+    .item-small img{
+        height: 4rem;
+        width: auto;
+        object-fit: contain;
+    }
+    .item-long img {
+        height: 4rem;
+        width: auto;
+        object-fit: contain;
+    }
+    .item-long-sleep img{
+        height: 2.5rem;
+        width: 95%;
+        object-fit: contain;
+        margin-left: 0.2rem;
+
+    }
+    .item-long {
+        padding-left: 0.1rem;
+    }
+    .caption2 {
+        margin-top: 0.3125rem;
+        font-size: 0.9rem;
+        color: #6d6969;
+        text-align: left;
+        flex-basis: 100%;
+    }
+    .fact-group-sleeping .caption2 {
+        margin-top: 0.3125rem;
+        font-size: 0.9rem;
+        color: #6d6969;
+        text-align: left;
+        flex-basis: 100%;
+    }
+}
 .caption1 {
     margin-top: 0.6rem;
     font-size: 1.4rem;
