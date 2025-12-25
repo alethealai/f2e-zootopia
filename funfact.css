@@ -47,32 +47,43 @@ h2 {
     justify-content: space-between;
     align-items: center;
 }
-@media (max-width: 767px) {
+
+@media (max-width: 768px) {
     .container-line-container {
-        width: 80%;
+        width: 100%;
         display: flex;
         justify-content: center;
     }
+
     .container-line {
         margin-top: 1rem;
-        width: 70%;
+        width: 100%;      
         display: flex;
-        justify-content: space-between;
-        align-items: center; 
+        flex-direction: column;
+        align-items: center;   
+    }
+
+    .container-line img {
+        margin-top: -0.5rem;
+        width: 95%;         
+        max-width: 18rem;   
+        height: auto;
+        display: block;
+    }
+
+    .vertical-line {
+        display: none;      
     }
 }
 @media (max-width: 480px) {
-        .container-line img {
-        margin-top: -1rem;
-        width: 80%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        }
-        .vertical-line {
-            display: none;
-        }
+    .container-line img {
+        margin-top: -0.5rem;
+        width: 70%;         
+        max-width: 12rem;   
+        height: auto;
+        display: block;
     }
+}
 .clue-img {
     width: 15rem;
     height: auto;
@@ -93,6 +104,35 @@ h2 {
     padding: 1rem;
     transition: transform 0.3s ease;
     position: relative;
+}
+@media (max-width: 768px) {
+    .image-container {
+        padding: 0 0.2rem;   
+        width: 100%;        
+        max-width: 50rem;   
+        margin: 0 auto;    
+        box-sizing: border-box; }
+
+    .image-container img {
+        width: 100%;       
+        height: auto;
+        display: block;
+    }
+}
+@media (max-width: 480px) {
+    .image-container {
+        padding: 1rem;
+        width: 80%; 
+        max-width: 15rem; 
+        margin: 0 auto; 
+        box-sizing: border-box; 
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
 }
 
 .opction-img {
@@ -342,12 +382,14 @@ h2 {
 
 .slides-wrapper {
     width: 100%;
+    overflow: hidden;
 }
 
 .carousel-custom .slides {
     display: flex;
     transition: transform 0.52s cubic-bezier(.22, .9, .32, 1);
     will-change: transform;
+    
 }
 
 .carousel-custom .slide {
@@ -357,6 +399,7 @@ h2 {
     align-items: center;
     gap: 1.5rem;
     padding: 1.5rem 1.5rem;
+    flex: 0 0 100%;
 }
 
 .carousel-custom .slide img {

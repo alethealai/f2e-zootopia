@@ -4,8 +4,6 @@ html {
     font-size: 16px;
     scroll-behavior: smooth;
     box-sizing: border-box;
-    height: 100vh;
-    /* overflow: hidden; */
 }
 
 *,
@@ -14,17 +12,6 @@ html {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-.parallax-wrapper {
-    /* overflow: hidden; */
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    transform-style: preserve-3d;
-    perspective: 1px;
 }
 
 h1 {
@@ -92,7 +79,39 @@ h2 {
     align-items: center;
     transition: opacity 0.5s ease;
 }
+.load-pic {
+    position: relative;
+    width: 17rem;  /* 根據你的圖片大小調整 */
+    height: 17rem;
+}
+.load-pic img {
+    position: absolute;
+    top: 7rem;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+.load-pic img:first-child {
+    animation: switch-1 0.5s infinite steps(1);
+}
 
+/* 第二張圖（預設隱藏） */
+.load-pic img:last-child {
+    animation: switch-2 0.5s infinite steps(1);
+}
+
+/* 動畫邏輯：兩張圖輪流變透明 */
+@keyframes switch-1 {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes switch-2 {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 1; }
+}
 .loader-content {
     width: 300px;
     position: relative;
@@ -267,74 +286,7 @@ h2 {
     width: 50rem;
 }
 
-/* 光 */
-/* 背景舞台 */
-:root {
-    --light-color: rgba(237, 196, 94, 0.77);
-    /* 燈光顏色，帶透明度 */
-}
 
-.container {
-    width: 100%;
-    height: 72px;
-    position: relative;
-}
-
-.soft-light {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    width: 100vw;
-    height: 100%;
-
-    /* 設定預設（大螢幕）的參數 */
-    --top-width: 30rem;
-    /* 頂部半寬 */
-    --slope-offset: 20rem;
-    /* 決定斜率的位移 */
-
-    background: linear-gradient(to bottom,
-            var(--light-color, rgba(255, 255, 255, 0.3)) 0%,
-            rgba(255, 255, 255, 0.1) 60%,
-            transparent 100%);
-
-    /* 使用 calc 確保斜邊比例固定 */
-    clip-path: polygon(calc(50% - var(--top-width)) 0%,
-            calc(50% + var(--top-width)) 0%,
-            calc(50% + var(--top-width) + var(--slope-offset)) 100%,
-            calc(50% - var(--top-width) - var(--slope-offset)) 100%);
-
-    filter: blur(1.5rem);
-    animation: light-pulse 4s ease-in-out infinite alternate;
-    pointer-events: none;
-}
-
-@media (max-width: 768px) {
-    .soft-light {
-        /* 只需要調整頂部寬度，斜率位移保持不變，角度就會看起來一致 */
-        --top-width: 6rem;
-        /* 手機版頂部變窄 */
-        --slope-offset: 12rem;
-        /* 手機版底部同步縮小，維持好看的斜率 */
-
-        filter: blur(1rem);
-        /* 小螢幕模糊半徑也要縮小，否則光會散掉 */
-    }
-}
-
-@keyframes light-pulse {
-    from {
-        opacity: 0.6;
-        transform: translateX(-50%) scaleX(0.9);
-    }
-
-    to {
-        opacity: 0.9;
-        transform: translateX(-50%) scaleX(1);
-    }
-}
 
 /* 走路走路 */
 .step {
@@ -1119,27 +1071,33 @@ body.menu-open #backToTop {
 /* ------------------------overlay-------------------------- */
 
 
-.menu-overlay {
+/* @media (max-width: 480px) {
+    .menu-overlay {
     position: fixed;
     inset: 0;
     z-index: 1000;
     display: flex;
 }
-
-.menu-overlay img {
+    .menu-overlay img{
     left: 50%;
     transform: translateX(-50%);
-    width: 90vw;
+    width: 93vw; 
     max-width: none;
-    bottom: 10%;
+    bottom: 15%;
     height: auto;
     object-fit: contain;
 }
+}
+.menu-overlay {
+    display: none;
+}
 
-/* 🧊 磨砂玻璃 */
-.background {
-
-    background-color: rgba (20, 25, 40, 0.45);
+.menu-overlay img{
+    display: none;
+} */
+    /* 🧊 磨砂玻璃 */
+    .background{
+    background: rgba(20, 25, 40, 0.45);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
@@ -1159,40 +1117,40 @@ body.menu-open #backToTop {
     clip-path: circle(150% at 90% 50px);
 }
 
-
-/* .penguin-svg {
+.penguin-svg {
     position: absolute;
     left: 8%;
     bottom: 8%;
     width: 280px;
     z-index: 1;
-} */
+}
 
 /* 企鵝線條初始狀態（藏起來） */
 /* .penguin-svg path {
     fill: transparent;
     stroke: #ffffff;
     stroke-width: 2;
+
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
 } */
 
 /* 選單打開 → 開始畫企鵝 */
-/* .menu-overlay.open .penguin-svg path {
+.menu-overlay.open .penguin-svg path {
     animation:
         draw-line 2s ease forwards,
         fill-in 0.6s ease forwards 1.8s;
-} */
+}
 
-/* @keyframes draw-line {
+@keyframes draw-line {
     to {
         stroke-dashoffset: 0;
     }
-} */
+}
 
 @keyframes fill-in {
     to {
-        fill: #ffffff;
+        fill: #702323;
     }
 }
 
@@ -1216,7 +1174,7 @@ body.menu-open #backToTop {
 
     color: transparent;
     /* 先看不到文字 */
-    -webkit-text-stroke: 1px #ffffff;
+    -webkit-text-stroke: 1px #403636;
 
     opacity: 1;
 }
@@ -1314,10 +1272,6 @@ body.menu-open #backToTop {
 /* --------------------RWDDDDD!--------------------- */
 .mobile-only-br {
     display: inline;
-}
-
-.menu-overlay {
-    display: none;
 }
 
 .image-grid {
@@ -1455,12 +1409,7 @@ body.menu-open #backToTop {
         max-width: 24rem;
     }
 
-    .soft-light {
-        width: 40rem;
-        filter: blur(0.8rem);
-    }
-
-    .header-container {
+    /* .header-container {
         width: 100%;
         padding: 0 0.5rem;
         height: 4rem;
@@ -1470,7 +1419,7 @@ body.menu-open #backToTop {
         width: auto;
         padding: 0.75rem 0;
         gap: 0.3rem;
-    }
+    } */
 
     .logoword {
         font-size: 1.2rem;
