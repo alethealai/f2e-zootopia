@@ -4,6 +4,8 @@ html {
     font-size: 16px;
     scroll-behavior: smooth;
     box-sizing: border-box;
+    height: 100vh;
+    /* overflow: hidden; */
 }
 
 *,
@@ -12,6 +14,17 @@ html {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+.parallax-wrapper {
+    /* overflow: hidden; */
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transform-style: preserve-3d;
+    perspective: 1px;
 }
 
 h1 {
@@ -1112,19 +1125,21 @@ body.menu-open #backToTop {
     z-index: 1000;
     display: flex;
 }
-.menu-overlay img{
+
+.menu-overlay img {
     left: 50%;
     transform: translateX(-50%);
-    width: 90vw; 
+    width: 90vw;
     max-width: none;
     bottom: 10%;
     height: auto;
     object-fit: contain;
 }
-    /* 🧊 磨砂玻璃 */
-    .background{
 
-    background-color:rgba (20, 25, 40, 0.45);
+/* 🧊 磨砂玻璃 */
+.background {
+
+    background-color: rgba (20, 25, 40, 0.45);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
@@ -1145,37 +1160,35 @@ body.menu-open #backToTop {
 }
 
 
-.penguin-svg {
+/* .penguin-svg {
     position: absolute;
     left: 8%;
     bottom: 8%;
     width: 280px;
     z-index: 1;
-}
+} */
 
 /* 企鵝線條初始狀態（藏起來） */
-.penguin-svg path {
+/* .penguin-svg path {
     fill: transparent;
-    /* 先不填色（重點） */
     stroke: #ffffff;
     stroke-width: 2;
-
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
-}
+} */
 
 /* 選單打開 → 開始畫企鵝 */
-.menu-overlay.open .penguin-svg path {
+/* .menu-overlay.open .penguin-svg path {
     animation:
         draw-line 2s ease forwards,
         fill-in 0.6s ease forwards 1.8s;
-}
+} */
 
-@keyframes draw-line {
+/* @keyframes draw-line {
     to {
         stroke-dashoffset: 0;
     }
-}
+} */
 
 @keyframes fill-in {
     to {
@@ -1301,6 +1314,10 @@ body.menu-open #backToTop {
 /* --------------------RWDDDDD!--------------------- */
 .mobile-only-br {
     display: inline;
+}
+
+.menu-overlay {
+    display: none;
 }
 
 .image-grid {
