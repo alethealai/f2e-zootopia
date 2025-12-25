@@ -47,7 +47,32 @@ h2 {
     justify-content: space-between;
     align-items: center;
 }
-
+@media (max-width: 767px) {
+    .container-line-container {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+    }
+    .container-line {
+        margin-top: 1rem;
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+    }
+}
+@media (max-width: 480px) {
+        .container-line img {
+        margin-top: -1rem;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+        .vertical-line {
+            display: none;
+        }
+    }
 .clue-img {
     width: 15rem;
     height: auto;

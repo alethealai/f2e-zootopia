@@ -1111,6 +1111,16 @@ body.menu-open #backToTop {
     inset: 0;
     z-index: 1000;
     display: flex;
+}
+.menu-overlay img{
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw; 
+    max-width: none;
+    bottom: 10%;
+    height: auto;
+    object-fit: contain;
+}
 
     /* 🧊 磨砂玻璃 */
     background: rgba(20, 25, 40, 0.45);
