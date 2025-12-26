@@ -35,11 +35,15 @@ html {
 }
 
 .section2 {
-    background: #DED9D1;
+    background: url("road.png") top center;
+    background-size: cover;
 }
 
 .section2 p {
+    top: 30%;
+    position: absolute;
     font-family: "Josefin Sans", sans-serif;
+    font-size: 1rem;
     display: block;
 }
 
@@ -47,11 +51,6 @@ html {
     top: 30%;
     left: 50%;
     position: absolute;
-    /* font-family: 'Franklin Gothic Heavy';
-    font-size: 15vw;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3),
-        5px 5px 70px rgba(255, 255, 255, 0.5); */
     transform: scale(1, 1.1) translate(-50%, 10%);
 }
 
@@ -325,22 +324,6 @@ h2 {
 p {
     display: block;
 }
-
-/* 標題SVG */
-/* .svg-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    position: relative;
-    z-index: 10;
-}
-
-.svg-container svg {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    width: 50rem;
-} */
 
 /* 光 */
 /* 背景舞台 */
@@ -1143,7 +1126,7 @@ body.menu-open #backToTop {
     left: 50%;
     top: 46%;
     transform: translate(-50%, -50%);
-    width: 380px;
+    width: 24rem;
     z-index: 1;
     pointer-events: none;
 }
