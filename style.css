@@ -124,7 +124,7 @@ h2 {
     width: 100%;
     max-width: 100%;
     height: 5rem;
-    background-color: #675642;
+    background-color: #fffff7;
     display: flex;
     justify-content: space-between;
     font-size: 1.5rem;
@@ -346,10 +346,10 @@ h2 {
     white-space: nowrap;
 }
 
-/* .skyyyydropdown-menu a:hover {
-    background-color: #bc2f2f;
+.skyyyydropdown-menu a:hover {
+    background-color: #5d4c3b;
     color: #faebc9;
-} */
+}
 
 .dropdown-menu a:hover {
     background-color: #5d4c3b;
