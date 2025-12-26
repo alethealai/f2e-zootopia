@@ -25,7 +25,7 @@ body {
 .quiz-area {
     padding-top: 2rem;
     padding-bottom: 2rem;
-    background-color: #DED9D1;
+    background-color: #fffff7;
 }
 
 h2 {
@@ -47,32 +47,45 @@ h2 {
     justify-content: space-between;
     align-items: center;
 }
-@media (max-width: 767px) {
+
+@media (max-width: 768px) {
     .container-line-container {
-        width: 80%;
+        width: 100%;
         display: flex;
         justify-content: center;
     }
+
     .container-line {
         margin-top: 1rem;
-        width: 70%;
+        width: 100%;
         display: flex;
-        justify-content: space-between;
-        align-items: center; 
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-line img {
+        margin-top: -0.5rem;
+        width: 95%;
+        max-width: 18rem;
+        height: auto;
+        display: block;
+    }
+
+    .vertical-line {
+        display: none;
     }
 }
+
 @media (max-width: 480px) {
-        .container-line img {
-        margin-top: -1rem;
-        width: 80%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        }
-        .vertical-line {
-            display: none;
-        }
+    .container-line img {
+        margin-top: -0.5rem;
+        width: 70%;
+        max-width: 12rem;
+        height: auto;
+        display: block;
     }
+}
+
 .clue-img {
     width: 15rem;
     height: auto;
@@ -81,7 +94,7 @@ h2 {
 
 .quize-popover {
     width: 100%;
-    background-color: #DED9D1;
+    background-color: #fffff7;
     display: flex;
     justify-content: center;
     gap: 4rem;
@@ -195,56 +208,66 @@ h2 {
     margin: 0;
     padding: 0;
 }
+
 .comparison {
     display: grid;
-    grid-template-columns: 35% 65%; 
+    grid-template-columns: 35% 65%;
     width: 95%;
     max-width: 62rem;
     margin: 0 auto;
     padding: 2rem 0;
-    row-gap: 3rem; 
+    row-gap: 3rem;
 }
+
 .comparison2 {
     display: grid;
-    grid-template-columns: 30% 70%; 
+    grid-template-columns: 30% 70%;
     width: 95%;
     max-width: 62rem;
     margin: 0 auto;
     padding: 2rem 0;
-    row-gap: 3rem; 
+    row-gap: 3rem;
 }
+
 .fact-group {
     display: contents;
-    height:20rem;
+    height: 20rem;
 }
-.fact-group-sleeping{
+
+.fact-group-sleeping {
     display: contents;
-    height:20rem;
+    height: 20rem;
 }
+
 .item-small {
     display: flex;
     flex-direction: column;
     align-items: center;
-    grid-column: 1; /* 強制動物在左邊第一欄 */
+    grid-column: 1;
+    /* 強制動物在左邊第一欄 */
 }
 
 .item-long {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    grid-column: 2; /* 強制器官在右邊第二欄 */
+    grid-column: 2;
+    /* 強制器官在右邊第二欄 */
     padding-left: 2rem;
 }
+
 .item-long-sleep {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    grid-column: 2; /* 強制器官在右邊第二欄 */
+    grid-column: 2;
+    /* 強制器官在右邊第二欄 */
     padding-left: -1rem;
 }
 
 /* 圖片樣式 */
-.item-small img, .item-long img {
+.item-small img,
+.item-long img {
     height: 9.5rem;
     width: auto;
     object-fit: contain;
@@ -255,46 +278,55 @@ h2 {
     margin-top: 0.5rem;
     color: #393333;
 }
-.item-long-sleep img{
+
+.item-long-sleep img {
     height: 5rem;
     width: auto;
     object-fit: contain;
 }
+
 @media (max-width: 768px) {
-    
-    .item-small img, .item-long img {
+
+    .item-small img,
+    .item-long img {
         height: 7rem;
         width: auto;
         object-fit: contain;
     }
-    .item-long-sleep img{
+
+    .item-long-sleep img {
         height: 4rem;
         width: auto;
         object-fit: contain;
 
     }
 }
+
 @media (max-width: 480px) {
-    .item-small img{
+    .item-small img {
         height: 4rem;
         width: auto;
         object-fit: contain;
     }
+
     .item-long img {
         height: 4rem;
         width: auto;
         object-fit: contain;
     }
-    .item-long-sleep img{
+
+    .item-long-sleep img {
         height: 2.5rem;
         width: 95%;
         object-fit: contain;
         margin-left: 0.2rem;
 
     }
+
     .item-long {
         padding-left: 0.1rem;
     }
+
     .caption2 {
         margin-top: 0.3125rem;
         font-size: 0.9rem;
@@ -302,6 +334,7 @@ h2 {
         text-align: left;
         flex-basis: 100%;
     }
+
     .fact-group-sleeping .caption2 {
         margin-top: 0.3125rem;
         font-size: 0.9rem;
@@ -310,6 +343,7 @@ h2 {
         flex-basis: 100%;
     }
 }
+
 .caption1 {
     margin-top: 0.6rem;
     font-size: 1.4rem;
@@ -342,6 +376,7 @@ h2 {
 
 .slides-wrapper {
     width: 100%;
+    overflow: hidden;
 }
 
 .carousel-custom .slides {
